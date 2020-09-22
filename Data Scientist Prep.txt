@@ -1,0 +1,72 @@
+website to Follow :
+https://www.pyimagesearch.com/category/deep-learning/
+https://analyticsindiamag.com/
+
+
+https://analyticsindiamag.com/50-data-science-and-analysts-jobs-that-opened-just-last-week/
+https://deepai.org/definitions
+
+
+
+to Read 
+
+https://medium.com/@manasnarkar/image-classification-with-convolution-neural-networks-cnn-with-keras-dbd71c05ed2a	 
+https://medium.com/cracking-the-data-science-interview/the-10-deep-learning-methods-ai-practitioners-need-to-apply-885259f402c1
+https://towardsdatascience.com/image-classification-in-10-minutes-with-mnist-dataset-54c35b77a38d
+https://www.datacamp.com/community/tutorials/convolutional-neural-networks-python
+https://www.youtube.com/watch?v=5p8B2Ikcw-k&ab_channel=PyData -- for CV point making 
+
+
+Decision tree :
+http://cs229.stanford.edu/notes/cs229-notes-dt.pdf
+http://cs229.stanford.edu/syllabus.html
+
+
+
+
+courses to pursue later :
+
+
+https://www.coursera.org/learn/machine-learning/home/welcome	
+https://www.coursera.org/learn/classification-vector-spaces-in-nlp
+
+
+
+
+Question to prepare :
+
+How do you give confidence for results for a regression problem?
+If not GPR then what?
+Given a NN for linear regression, how do you determine the distribution of y given x?
+Prove all columns must be independent for Ordinary least squares?
+What does R2 (R squared) value of 0 signify?
+Given a function how do you determine if it is convex?
+How to determine if a matrix is PSD?
+Prove that autoencoders can give the same components as PCA.
+What will happen if all weights of NN are initialized to 0?
+If all weights are randomly initialized to large values?
+If all weights are randomly initialized to small values?
+How do we solve initialization problem with mathematical proof.
+How is dilated filter different from normal CNN?
+Depthwise separable CNN?
+Focal loss vs weighted cross entropy?
+RCNN vs SSD.
+Identity problem? 
+Vanishing Gradients why and solution.
+There are n >= 1 people sitting in a circle where each person has 1 coin. If every person has to give their coin to the person on the left or the right, what is the expectation of the number of people that have more than one coin. E[ people >= 1 coin ] = ?
+How would you make an unfair coin from a fair one?
+If point P is placed above a plane, derive the coordinates of the point that mirrors this one below the place
+Effect of batch normalization on bias.
+Given n vectors how do you determine span of those?
+How to find orthonormal basis for those?
+How are Eigen Values computed internally in libraries like numpy?
+Cramers rule and significance of determinants, cross product, dot product etc.
+Relation of Eigen vectors and null space.
+Problem on expected value of discrete variable.
+IF randomly a person is chosen and he/she likes to read, what is the probability that he is an accountant in government office vs that he serves the army.
+What is the assumption in MAP which is not in MLE?
+Kernel trick, conditions for a kernel, how does SVM incorporates Kernel.
+Loss function for Adaboost vs XGboost.
+How do you determine accuracy of clustering algorithms given true groups?
+https://www.geeksforgeeks.org/count-number-of-ways-to-partition-a-set-into-k-subsets/
+https://www.geeksforgeeks.org/minimum-number-platforms-required-railwaybus-station/	

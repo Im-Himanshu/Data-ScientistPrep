@@ -239,6 +239,7 @@ Match the options below:
 (Category): 6
 (Random answers): 0
 
+
 (Question): Each tree of Random Forest has ....
 (A): high variance, low bias
 (B): low variance, high bias
@@ -464,11 +465,15 @@ Match the options below:
 (Type): multiplechoice
 (Category): 6
 (Random answers): 1
-(Question): What is the time complexity for least square regression with m training examples and p features
-(A): O(pm[sup]2[/sup]) -- pm2
-(B): O(pm) pm
-(C): O(p[sup]3[/sup]m[sup]2[/sup]) p3m2
-(D): O(p[sup]2[/sup]m)p2m
+
+11. (Question): What is the time complexity for least square regression with m training examples and p features
+>(A): O(pm[sup]2[/sup]) -- pm2
+
+>(B): O(pm) pm
+
+>(C): O(p[sup]3[/sup]m[sup]2[/sup])-- p3m2
+
+>(D): O(p[sup]2[/sup]m) --- p2m
 (Correct): D
 (Points): 1
 

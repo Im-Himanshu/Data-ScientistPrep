@@ -25,6 +25,8 @@ Graphs - DFS, BFS and applications
 ### Initial list of important topics. Add more topics/questions.
 1. Stats - A/B, hypothesis testing, p-value or confidence intervals
 
+- [x] This is a complete item
+- [ ] This is an incomplete item
 ### ML algorithms
 1. dimensionality reduction basics (PCA vs. SVD vs. 
 > non-linear versions t-SNE)

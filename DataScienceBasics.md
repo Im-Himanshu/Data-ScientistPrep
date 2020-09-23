@@ -36,14 +36,17 @@
             AOS = 1/2*log((1-TotalError)/TotalError) newWieght wrong = old*e^AOS
             newwight corect = old*e^(-AOS)
             2. [Gradient Boost by Krish Nair](https://www.youtube.com/watch?v=Nol1hVtLOSg&ab_channel=KrishNaik)
-    2. [SVM]()
+    2. [SVM](https://towardsdatascience.com/svm-implementation-from-scratch-python-2db2fc52e5c2)
+        1. [kernel Function intution](https://towardsdatascience.com/kernel-function-6f1d2be6091)
 
     2. ## Dimensionality reductions : Feature selections 
 
         1.  [PCA 1](https://builtin.com/data-science/step-step-andexplanation-principal-component-analysis) and [PCA 2 ](https://towardsdatascience.com/a-one-stop-shop-for-principal-component-analysis-5582fb7e0a9c) and [SVD(Singular value decomposition)](https://www.youtube.com/watch?v=P5mlg91as1c&ab_channel=ArtificialIntelligence-AllinOne) 
         Theme here is PCA is performed by SVD like to do PCA we use SVD methods
         2. Non-linear Dimensionality reduction -- Kernel
-            1. [t-SNE](https://towardsdatascience.com/an-introduction-to-t-sne-with-python-example-5a3a293108d1) t-distributed Stochastic neighbour embedding [statQuest](https://www.youtube.com/watch?v=NEaUSP4YerM&ab_channel=StatQuestwithJoshStarmer)
+            1. [t-SNE](https://towardsdatascience.com/an-introduction-to-t-sne-with-python-example-5a3a293108d1) t-distributed Stochastic neighbour embedding [statQuest](https://www.youtube.com/watch?v=NEaUSP4YerM&ab_channel=StatQuestwithJoshStarmer) :
+            > it basically take the clustering in higher dimension and project/presrve the same when projected to lower dimension allowing us to view the relationship in data. Used in word-embedding in NLP.
+            its computationally very expensive.
 
 
 
@@ -107,6 +110,9 @@
 2. [Precision Matrices](https://machinelearningmastePCry.com/tour-of-evaluation-metrics-for-imbalanced-classification/)
 3. [Imbalanced classification Matrices](https://towardsdatasciencecom/metrics-for-imbalanced-classification-41c71549bbb5)
 4. [ROC-AUC curve and PR curve](https://www.youtube.com/watch?v=4jRBRDbJemM)
+5. basic Statistics and test like ANOVA, p-test, f-test chi-square test etc
+
+![Confusion Matrix](./Assets/Confusion_Matrix.jpg)
 
 # To Do Task 
 1. learn About big data tool like hadoop and their working, implement a simple project to get the output. Big, Hive, Hadoop Flume-- Big Data System. It is needed for retrieval and processing.
@@ -139,6 +145,12 @@ Improve Predictions (Stacking)
 
 1. Recommendation Engine 
 2. map-reduce and hadoop basic knowledge 
+3. basic knowledge of statistics and linear algebra
+    1. Distribution : poisson, Gaussian etc
+    2. Linear algebra : Eigen value calculations and concept
+4. Usage of t-SNE, SVM, Bayes theorem, PCA for one problem. See for the Usage of SVM for feature selection in decision tree.
+5. Usage of ROC(reciever operating characterstics) and PR curve in actual decision of good classifier.
+6. 
 
 
 Ensemble Methods can also be divided into two groups:
@@ -156,4 +168,33 @@ Types of Boosting Algorithms
 3. XGBoost
 
 In this article, we will be focusing on the details of AdaBoost, which is perhaps the most popular boosting method.
+
+
+
+# choice of evaluation matrices 
+>
+>Here are some first-order suggestions: \
+Are you predicting probabilities?\
+    Do you need class labels? \
+    Is the positive class more important? \
+    Use Precision-Recall AUC \
+    Are both classes important? \
+    Use ROC AUC \
+Do you need probabilities? \
+Use Brier Score and Brier Skill Score\
+Are you predicting class labels? \
+Is the positive class more important? \
+Are False Negatives and False Positives Equally Important? \
+Use F1-Measure\
+Are False Negatives More Important?\
+Use F2-Measure\
+Are False Positives More Important? \
+Use F0.5-Measure \
+Are both classes important? \
+Do you have < 80%-90% Examples for the Majority Class? \ 
+Use Accuracy \
+Do you have > 80%-90% Examples for the Majority Class? \
+Use G-Mean \
+
+
 

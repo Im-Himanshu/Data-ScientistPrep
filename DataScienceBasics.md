@@ -113,7 +113,7 @@
 5. basic Statistics and test like ANOVA, p-test, f-test chi-square test etc
 
 
-<img src="./Assets/Confusion_Matrix.jpg" alt="drawing" height = "400"/>
+<img src="./Assets/Confusion_Matrix.jpg" alt="drawing" height = "800"/>
 
 # To Do Task 
 1. learn About big data tool like hadoop and their working, implement a simple project to get the output. Big, Hive, Hadoop Flume-- Big Data System. It is needed for retrieval and processing.

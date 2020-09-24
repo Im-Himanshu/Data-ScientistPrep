@@ -4,6 +4,7 @@
 2. [Deeplearning.ai by AndrewNG Notes](https://github.com/mbadry1/DeepLearning.ai-Summary)
 3. [DeepLearning course Itself](https://www.coursera.org/specializations/deep-learning?authMode=login#courses) -- Login with facebook Account
 4. [Same list of topic ensembled](https://towardsdatascience.com/how-id-learn-data-science-if-i-could-start-over-2-years-in-b821d8a4876c)
+5. [master doc](https://docs.google.com/document/d/1wvtcwc8LOb3PZI9huQOD7UjqUoY98N5r3aQsWKNAlzk/edit)
 
 
 # All Machine Learning Algorithms :
@@ -38,6 +39,7 @@
             2. [Gradient Boost by Krish Nair](https://www.youtube.com/watch?v=Nol1hVtLOSg&ab_channel=KrishNaik)
     2. [SVM](https://towardsdatascience.com/svm-implementation-from-scratch-python-2db2fc52e5c2)
         1. [kernel Function intution](https://towardsdatascience.com/kernel-function-6f1d2be6091)
+        2. [kernal Function clearly Demonstrated](https://www.youtube.com/watch?v=Qc5IyLW_hns&ab_channel=StatQuestwithJoshStarmer)
 
     2. ## Dimensionality reductions : Feature selections 
 
@@ -73,7 +75,7 @@
 
 6. [Optimization deeplearning.ai](https://github.com/mbadry1/DeepLearning.ai-Summary/tree/master/2-%20Improving%20Deep%20Neural%20Networks#optimization-algorithms) :
     1. [Momentum based](https://github.com/mbadry1/DeepLearning.ai-Summary/tree/master/2-%20Improving%20Deep%20Neural%20Networks#gradient-descent-with-momentum) : Exponential Moving average of DW and db term to stop them moving randomly 
-    3. [RMS Prop](https://github.com/mbadry1/DeepLearning.ai-Summary/tree/master/2-%20Improving%20Deep%20Neural%20Networks#rmsprop) : divide alpha with Sdw and Sdb and assume Sdb > Sdw so b will move in optimize manner
+    3. [RMS Prop (root mean square) ](https://github.com/mbadry1/DeepLearning.ai-Summary/tree/master/2-%20Improving%20Deep%20Neural%20Networks#rmsprop) : divide alpha with Sdw and Sdb and assume Sdb > Sdw so b will move in optimize manner
     4. [ADAM](https://github.com/mbadry1/DeepLearning.ai-Summary/tree/master/2-%20Improving%20Deep%20Neural%20Networks#adam-optimization-algorithm) : combinaion of Momentum and RMS prop
     5. [ADA Grad](https://www.youtube.com/watch?v=GSmW59dM0-o&list=PLZoTAELRMXVPGU70ZGsckrMdr0FteeRUi&index=15) : Kind of RMS prop but simple average of all past DW*DW so as number of 
     6. [Mini Batch Gradient Descent](https://github.com/mbadry1/DeepLearning.ai-Summary/tree/master/2-%20Improving%20Deep%20Neural%20Networks#mini-batch-gradient-descent)
@@ -145,6 +147,7 @@ Improve Predictions (Stacking)
 ## Good to have sample project
 
 1. Recommendation Engine 
+2. ANy NLP based project like covid one
 2. map-reduce and hadoop basic knowledge 
 3. basic knowledge of statistics and linear algebra
     1. Distribution : poisson, Gaussian etc

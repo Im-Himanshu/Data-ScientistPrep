@@ -10,7 +10,7 @@
 # All Machine Learning Algorithms :
 
 1. [All at once](https://www.analyticsvidhya.com/blog/2017/09/common-machine-learning-algorithms/)
-    1. Linear Regression
+    1. [Linear Regression](https://towardsdatascience.com/step-by-step-tutorial-on-linear-regression-with-stochastic-gradient-descent-1d35b088a843)
     2. Logistic regression 
         1. [Assumptions](https://medium.com/@dhiraj8899/top-5-assumptions-for-logistic-regression-96b11d24d357)
     3. [ANN]()
@@ -18,7 +18,7 @@
     5. [KNN k nearest neighbour](https://www.analyticsvidhya.com/blog/2018/03/introduction-k-neighbours-algorithm-clustering/) : See the class of k neighbour for the point to predict Y and whatever be in te majority is thw winner.
     6. [K-Means Clustering](https://www.youtube.com/watch?v=4b5d3muPQmA): create k cluster and assign each point to either one of them.
     K is optimized based on elbow in the distance summation from cluster centroid
-    7. [Naive Bayes]()
+    7. [Naive Bayes](https://monkeylearn.com/blog/practical-explanation-naive-bayes-classifier/)
     1. [Decision Tree/Random Forest Detailed](https://www.analyticsvidhya.com/blog/2016/04/tree-based-algorithms-complete-tutorial-scratch-in-python/)
         1. [Decide Splitting of tree]()
             1. Gini  (p^2+ q^2x)
@@ -67,8 +67,8 @@
     3. Xavier/Gorat Initialization : root(2/fan_in+fan_out) works well with sigmoid
     4. He_ Initialization : Works well with RELU Activation
 5. [Regularization](https://github.com/mbadry1/DeepLearning.ai-Summary/tree/master/2-%20Improving%20Deep%20Neural%20Networks#regularization) : Reducing overfitting and underfitting
-    1. L1
-    2. L2
+    1. [L1](https://towardsdatascience.com/intuitions-on-l1-and-l2-regularisation-235f2db4c261)
+    2. [L2s ](https://towardsdatascience.com/l1-and-l2-regularization-methods-ce25e7fc831c)
     3. Dropout
     4. Data Augementation
     5. Early Stopping

@@ -154,7 +154,7 @@ Improve Predictions (Stacking)
     2. Linear algebra : Eigen value calculations and concept
 4. Usage of t-SNE, SVM, Bayes theorem, PCA for one problem. See for the Usage of SVM for feature selection in decision tree.
 5. Usage of ROC(reciever operating characterstics) and PR curve in actual decision of good classifier.
-6. 
+6. Andrew Ng notes complete transcript along with slides.
 
 
 Ensemble Methods can also be divided into two groups:

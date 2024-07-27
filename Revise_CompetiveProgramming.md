@@ -29,7 +29,7 @@ Tree Traversal
 *   [Heap](#7-heap)
 *   [Hash](#8-hash)
 *   [Tree](#9-tree)
-*   [Graph](#10-graph)
+*   [Graph](https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/)
 
 
 ## Algorithms

@@ -18,7 +18,7 @@ Tree Traversal
 
 # DSA Important Topics
 
-## Data Structures - [G4G Article] (https://www.geeksforgeeks.org/learn-data-structures-and-algorithms-dsa-tutorial/)
+## Data Structures - [G4G Article](https://www.geeksforgeeks.org/learn-data-structures-and-algorithms-dsa-tutorial/)
 
 *   [Array](#1-array)
 *   [String](#2-string)

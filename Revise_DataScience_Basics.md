@@ -3,11 +3,11 @@
 1. [Krish Naik Deep Learning Series](https://www.youtube.com/watch?v=JkeiEYkLEvM&list=PLZoTAELRMXVPGU70ZGsckrMdr0FteeRUi)
 2. [Deeplearning.ai by AndrewNG Notes](https://github.com/mbadry1/DeepLearning.ai-Summary)
 3. Deeplearning.ai by AndrewNG Videos 
-   [Course-1 Neural Network and Deep Learning](https://www.youtube.com/watch?v=1waHlpKiNyY&list=PLkDaE6sCZn6Hn0vK8co82zjQtt3T2Nkqc&ab_channel=DeepLearningAI)
-   [Course-2 Imporving Deep Neural Network](https://www.youtube.com/watch?v=1waHlpKiNyY&list=PLkDaE6sCZn6Hn0vK8co82zjQtt3T2Nkqc&ab_channel=DeepLearningAI)
-   [Course-3 Structure ML Projects](https://www.youtube.com/watch?v=dFX8k1kXhOw&list=PLkDaE6sCZn6E7jZ9sN_xHwSHOdjUxUW_b&ab_channel=DeepLearningAI)
-   [Course-4 CNN](https://www.youtube.com/watch?v=ArPaAX_PhIs&list=PLkDaE6sCZn6Gl29AoE31iwdVwSG-KnDzF&ab_channel=DeepLearningAI)
-   [Course-5 Sequence Models](https://www.youtube.com/watch?v=_i3aqgKVNQI&list=PLkDaE6sCZn6F6wUI9tvS_Gw1vaFAx6rd6&ab_channel=DeepLearningAI)
+   * [Course-1 Neural Network and Deep Learning](https://www.youtube.com/watch?v=1waHlpKiNyY&list=PLkDaE6sCZn6Hn0vK8co82zjQtt3T2Nkqc&ab_channel=DeepLearningAI)
+   * [Course-2 Imporving Deep Neural Network](https://www.youtube.com/watch?v=1waHlpKiNyY&list=PLkDaE6sCZn6Hn0vK8co82zjQtt3T2Nkqc&ab_channel=DeepLearningAI)
+   * [Course-3 Structure ML Projects](https://www.youtube.com/watch?v=dFX8k1kXhOw&list=PLkDaE6sCZn6E7jZ9sN_xHwSHOdjUxUW_b&ab_channel=DeepLearningAI)
+   * [Course-4 CNN](https://www.youtube.com/watch?v=ArPaAX_PhIs&list=PLkDaE6sCZn6Gl29AoE31iwdVwSG-KnDzF&ab_channel=DeepLearningAI)
+   * [Course-5 Sequence Models](https://www.youtube.com/watch?v=_i3aqgKVNQI&list=PLkDaE6sCZn6F6wUI9tvS_Gw1vaFAx6rd6&ab_channel=DeepLearningAI)
 5. [DeepLearning course Itself](https://www.coursera.org/specializations/deep-learning?authMode=login#courses) -- Login with facebook Account
 4. [Same list of topic ensembled](https://towardsdatascience.com/how-id-learn-data-science-if-i-could-start-over-2-years-in-b821d8a4876c)
 5. [master doc](https://docs.google.com/document/d/1wvtcwc8LOb3PZI9huQOD7UjqUoY98N5r3aQsWKNAlzk/edit)

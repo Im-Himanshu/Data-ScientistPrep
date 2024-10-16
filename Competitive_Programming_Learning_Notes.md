@@ -19,6 +19,7 @@ In this I am discussing soft skills and tricks that I have learned in my experie
    - This makes the process easier; for singly linked lists, the previous pointer doesn't need to be managed.
    - This approach elegantly handles cases where the linked list is empty or has only one element:
      - Start the loop with `current.next is None` and use `current = current.next` to skip the dummy node.
+   - Always delete the connection created to the dummy node at the end of the code to avoid any loop in the code - refer [problem-linkedlist hard -1](./Problem_solving_logs.md) 
 
 2. **Avoid Index-Based Iteration**
    - Do not run an outer loop based on a fixed number of iterations with next operations.

@@ -1,57 +1,87 @@
 from code_samples.linked_list import ListNode
 
 # Important Lessons
-1. Read the Question carefully and see what it is expecting to do
-   1. Today I did the [Reverse sub Singly-Linked list](https://leetcode.com/problems/reverse-linked-list-ii/?envType=problem-list-v2&envId=linked-list) - I didn't notice the boundary cases which changes the whole solving criterion
-2. LinkedList and Graph question must be written on paper before jumping on to implementing them, line by line operation should be clearly written on paper to not require to think when writing code.
+1. **Read the Question Carefully**
+   - Understand what is expected from the problem.
+   - Example: Today I tackled the [Reverse Sub Singly-Linked List](https://leetcode.com/problems/reverse-linked-list-ii/?envType=problem-list-v2&envId=linked-list). I overlooked the boundary cases, which changed the whole solving criterion.
 
+2. **Draft Linked List and Graph Questions**
+   - Write the operations on paper before coding.
+   - Clearly outline the line-by-line operations to avoid confusion during implementation.
 
+---
 
+### Tricks for Linked Lists
 
+1. **Use Dummy Nodes**
+   - Create a dummy head and tail node to simplify boundary case handling.
+   - This makes the process easier; for singly linked lists, the previous pointer doesn't need to be managed.
+   - This approach elegantly handles cases where the linked list is empty or has only one element:
+     - Start the loop with `current.next is None` and use `current = current.next` to skip the dummy node.
 
-### Tricks for Linked list
+2. **Avoid Index-Based Iteration**
+   - Do not run an outer loop based on a fixed number of iterations with next operations.
+   - Looping in a linked list should be based on the parameter being worked upon or a fixed index only.
 
-1. Always create a dummy head and tail node and start process from this dummy to handle boundary cases better. Delete this boundary cases in the end of the code. For single linked list it gets even simpler because prev pointer have not to be handled.
-   1. This approach very elegantly handeled cases where linked list is empty or has only one element, start loop with `crnt.next is None` and first line is `crnt  = crnt.next` which skips the dummy node is start
-2. Never run a index based iteration based on next operator of linkedlist. For example: running an outer loop for fixed number of time based on next operation, while the inner loop is editing the nodes relationship. Loop in LinkedList has to be based on parameter been worked upon or a fixed index only.
-3. If in any question we need to perform sorting on linkedlist, don't go on to implement it yourself but convert the values to array and use arr.sort() function, this would be more space complex but would be anyday better than implementing own sorting.
-4. if it comes to implement sorting of linked list: use MergeSort when time-complexity is priority and BubbleSort if coding-time is priority.
-5. If needed there is a implementation of LL sorting in `code-samples>linked_list.py` of this directory
-6. Linked list can be very tricky to debug, even one logical error make it go haywire. Above LL merge-sorting took 15 min to implement and 30 min to debug.
+3. **Sorting Linked Lists**
+   - If sorting is needed, convert values to an array and use `arr.sort()`. This is more space complex but simpler than implementing a sort from scratch.
+   - When implementing sorting, use:
+     - **Merge Sort** for time complexity.
+     - **Bubble Sort** for quicker coding time.
+   - There is an implementation of linked list sorting in [code-samples/linked_list.py](./code_samples/linked_list.py) of this directory.
 
+4. **Debugging Tips**
+   - Linked lists can be tricky to debug; even a single logical error can cause issues.
+   - Example: The above linked list merge sorting took 15 minutes to implement and 30 minutes to debug.
 
+---
 
+### Sorting Algorithms
 
+1. **Bubble Sort** 
+   - Time Complexity: O(n²), worst case.
+   - Easy to implement.
+   - Procedure: Traverse from left to right, moving the largest element to the end in each loop.
+   - Suitable for single linked lists due to its one-directional traversal.
 
+2. **Insertion Sort** 
+   - Time Complexity: O(n²), worst case.
+   - Easy to implement.
+   - Procedure: Travel from the ith to 0 for increasing i, creating a sorted array on the left.
+   - Not feasible for single linked lists due to reverse traversal requirement.
 
-### Sorting Algorithms:
-1. `BubbleSort` O(n2), worst time complexity, easy to implement: 
-   1. travel from left to right and take the largest element to the end of array in every loop
-   2. Requires one direction traversal so can be used for single Linked list
-2. `Insertion Sort` O(n2), worst time complexity, easy to implement:
-   1. Travel from ith to 0 for increasing i, consider this as accumulating shorted array in the left.
-   2. At ith Loop the array will be sorted till ith index and we are looking for correct poisition for i+1 th element in the sorted array.
-   3. Requires reverse traversal so not feasible in the single linked list.
-3. `Merge Sort` O(nLogn) Divide and conquer: most common and not soo complex to implement (though not trivial also)
-   1. Divide the list in two half and now recursively  call the Merge sort on shorter list
-   2. Merge the two smaller sorted an in traverse back step.
-   3. Require a recursive call so takes memory to be loaded.
-   4. 
+3. **Merge Sort** 
+   - Time Complexity: O(n log n), divide and conquer approach.
+   - Common and moderately complex to implement.
+   - Procedure: Divide the list into two halves, recursively call Merge Sort on each half, and merge the two sorted lists.
+   - Requires recursive calls, which can take additional memory.
 
+---
 
-## Python Tricks 
+## Python Tricks
 
-1. For program requiring sorting and top-k like structure use inbuilt functions for example heapq for getting max/min of a dynamic list
-[HeapQ Tutorial](./heapq_python_tutorial.md)
-```python
-# Heapq general usage 
-# assume node is a class
-import heapq
-nodes = [(3, Node("A", 3)), (1, Node("B", 1)), (4, Node("C", 4)), (2, Node("D", 2))] # using tuple (priority, object)
-heapq.heapify(nodes)
-# Push a new Node into the heap
-heapq.heappush(nodes, (0, Node("E", 0)))
-popped_node = heapq.heappop(nodes) # smallest node
-largest_nodes = heapq.nlargest(2, nodes) # Get the 2 largest nodes
-smallest_nodes = heapq.nsmallest(2, nodes) # Get the 2 smallest nodes
-```
+1. **Using Heapq for Dynamic Lists**
+   - For programs requiring sorting or top-k structures, use built-in functions like `heapq` for max/min operations.
+   - [HeapQ Tutorial](./heapq_python_tutorial.md)
+
+   ```python
+   # Heapq general usage 
+   import heapq
+   
+   # Assuming Node is a class
+   nodes = [
+       (3, Node("A", 3)),
+       (1, Node("B", 1)),
+       (4, Node("C", 4)),
+       (2, Node("D", 2))
+   ]  # Using tuple (priority, object)
+   
+   heapq.heapify(nodes)  # Transform list into a heap
+   
+   # Push a new Node into the heap
+   heapq.heappush(nodes, (0, Node("E", 0)))
+   
+   popped_node = heapq.heappop(nodes)  # Get the smallest node
+   largest_nodes = heapq.nlargest(2, nodes)  # Get the 2 largest nodes
+   smallest_nodes = heapq.nsmallest(2, nodes)  # Get the 2 smallest nodes
+   ```

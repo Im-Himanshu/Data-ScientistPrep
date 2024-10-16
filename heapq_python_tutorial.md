@@ -20,16 +20,21 @@ n_smallest = heapq.nsmallest(3, values) # Get the nth smallest elements from the
 we can store an object node in the array and ask heapq to sort them for us, but we either need to custom define the __lt__ operator in the definition of the object class.
 Or has to pass this as a tuple of (priority, objectNode)
 ### Method-1- using tuple with tuple of (priority, objectNode)
-
+heapq picks the tuple to comapare with the first value > second and so on.
+if first value is tie and second value is object without __lt__ operator it will throw error so always pass a unique value as index
 ```python
 import heapq
+import random, string
+def random_string(length=8):
+    return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
+
 
 # Instead of a custom Node class, use a tuple (priority, value)
 nodes = [
-    (3, "A"),
-    (1, "B"),
-    (4, "C"),
-    (2, "D"),
+    (3, random_string(), "A"),
+    (1, random_string(), "B"),
+    (4, random_string(), "C"),
+    (2, random_string(), "D"),
 ]
 
 # Heapify the list of tuples
@@ -37,7 +42,7 @@ heapq.heapify(nodes)
 print("Heapified nodes:", nodes)
 
 # Push a new tuple into the heap
-heapq.heappush(nodes, (0, "E"))
+heapq.heappush(nodes, (0, random_string(), "E"))
 print("After pushing E:", nodes)
 
 # Pop the smallest (highest priority) tuple from the heap
@@ -46,13 +51,16 @@ print("Popped node:", popped_node)
 print("Nodes after popping:", nodes)
 
 # Push another tuple
-heapq.heappush(nodes, (5, "F"))
+heapq.heappush(nodes, (5, random_string(), "F"))
 print("After pushing F:", nodes)
 
 # Pop all tuples in order of priority
 print("Popping all nodes in priority order:")
 while nodes:
     print(heapq.heappop(nodes))
+
+
+
 
 ```
 

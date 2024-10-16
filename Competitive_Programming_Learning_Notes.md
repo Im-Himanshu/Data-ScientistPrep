@@ -1,4 +1,5 @@
-from code_samples.linked_list import ListNode
+For Revision of Competitive Programming refer this file [Revise Competitive Programming](./Revise_CompetiveProgramming.md)
+In this I am discussing soft skills and tricks that I have learned in my experience.
 
 # Important Lessons
 1. **Read the Question Carefully**
@@ -62,24 +63,26 @@ from code_samples.linked_list import ListNode
 
 1. **Using Heapq for Dynamic Lists**
    - For programs requiring sorting or top-k structures, use built-in functions like `heapq` for max/min operations.
-   - [HeapQ Tutorial](./heapq_python_tutorial.md)
+   - [HeapQ Detailed Notes](./heapq_python_tutorial.md)
+   - Be creaful if the first value of tuple is tie it jumps to second value so pass a unique value as second value.
 
    ```python
    # Heapq general usage 
    import heapq
-   
+   i =0
    # Assuming Node is a class
    nodes = [
-       (3, Node("A", 3)),
-       (1, Node("B", 1)),
-       (4, Node("C", 4)),
-       (2, Node("D", 2))
+       (3, i:= i+1, Node("A", 3)), # need to careful for ties on priority it will throw error
+       (1, i:= i+1, Node("B", 1)),
+       (4, i:= i+1, Node("C", 4)),
+       (2, i:= i+1, Node("D", 2))
    ]  # Using tuple (priority, object)
    
    heapq.heapify(nodes)  # Transform list into a heap
    
    # Push a new Node into the heap
-   heapq.heappush(nodes, (0, Node("E", 0)))
+   heapq.heappush(nodes, (0, i:= i+1, Node("E", 0)))
+
    
    popped_node = heapq.heappop(nodes)  # Get the smallest node
    largest_nodes = heapq.nlargest(2, nodes)  # Get the 2 largest nodes

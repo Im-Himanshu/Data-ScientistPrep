@@ -2,8 +2,9 @@
 
 1. [Krish Naik Deep Learning Series](https://www.youtube.com/watch?v=JkeiEYkLEvM&list=PLZoTAELRMXVPGU70ZGsckrMdr0FteeRUi)
 2. [Deeplearning.ai by AndrewNG Notes](https://github.com/mbadry1/DeepLearning.ai-Summary)
+3. [Deeplearning.ai by AndrewNG Notes and assignments too](https://github.com/amanchadha/coursera-deep-learning-specialization/tree/master)
 3. Deeplearning.ai by AndrewNG Videos 
-   * [Course-1 Neural Network and Deep Learning](https://www.youtube.com/watch?v=1waHlpKiNyY&list=PLkDaE6sCZn6Hn0vK8co82zjQtt3T2Nkqc&ab_channel=DeepLearningAI)
+   * [Course-1 Neural Network and Deep Learning](https://www.youtube.com/watch?v=CS4cs9xVecg&list=PLkDaE6sCZn6Ec-XTbcX1uRg2_u4xOEky0&ab_channel=DeepLearningAI)
    * [Course-2 Imporving Deep Neural Network](https://www.youtube.com/watch?v=1waHlpKiNyY&list=PLkDaE6sCZn6Hn0vK8co82zjQtt3T2Nkqc&ab_channel=DeepLearningAI)
    * [Course-3 Structure ML Projects](https://www.youtube.com/watch?v=dFX8k1kXhOw&list=PLkDaE6sCZn6E7jZ9sN_xHwSHOdjUxUW_b&ab_channel=DeepLearningAI)
    * [Course-4 CNN](https://www.youtube.com/watch?v=ArPaAX_PhIs&list=PLkDaE6sCZn6Gl29AoE31iwdVwSG-KnDzF&ab_channel=DeepLearningAI)
@@ -67,6 +68,7 @@
 # Important Concept in DeepLearning 
 1. [Data Science Interview MindSet by Krish Naik](https://www.youtube.com/watch?v=613lId6jm7g&ab_channel=KrishNaik)
 2. [Topics to Prepare Krish nair](https://www.youtube.com/watch?v=8Q5F_AQ9OGo&ab_channel=KrishNaik)
+3. [Activation Functions and their derivates](https://dustinstansbury.github.io/theclevermachine/derivation-common-neural-network-activation-functions), [source-2](https://medium.com/@Coursesteach/deep-learning-part-25-derivatives-of-activation-functions-4bbd7c7c7a1c)
 4. [Full Implmentation of ANN](https://www.youtube.com/watch?v=OTTOglLJxLU&list=PLZoTAELRMXVPGU70ZGsckrMdr0FteeRUi&index=17)
 5. [Weight Initialization video](https://www.youtube.com/watch?v=tMjdQLylyGI&list=PLZoTAELRMXVPGU70ZGsckrMdr0FteeRUi&index=11&ab_channel=KrishNaik) and [article](https://towardsdatascience.com/weight-initialization-in-neural-networks-a-journey-from-the-basics-to-kaiming-954fb9b47c79)
     1. Zero Initializarion : all Zeros not for ANN
@@ -128,7 +130,7 @@
    1. [Word2Vec by Jay ](https://jalammar.github.io/illustrated-word2vec/) -- best for one go learning
       1. Using SKip-gram - tougher and complex
       2. Using Negative sampling - easy and less complex
-      ![img_1.png](img_1.png)
+      ![img_1.png](Assets/img_1.png)
    2. [confusing by ANdrewNG video](https://youtu.be/36XuT5c9qvE?list=PLkRLdi-c79HKEWoi4oryj-Cx-e47y_NcM&t=2575)
 2. [Tf-TDF vectorization](https://towardsdatascience.com/tf-idf-for-document-ranking-from-scratch-in-python-on-real-world-dataset-796d339a4089)
    Using WHere we want to define our own word vector representation, or word2Vec is not to be used.
@@ -238,6 +240,9 @@ Use G-Mean \
 
 
 Sequence Model
-![img.png](img.png)
+![img.png](Assets/img.png)
+
+Activation Function and derivatives
+![img_2.png](Assets/img_2.png)
 
 

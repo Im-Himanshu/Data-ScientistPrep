@@ -10,6 +10,9 @@ In this I am discussing soft skills and tricks that I have learned in my experie
    - Write the operations on paper before coding.
    - Clearly outline the line-by-line operations to avoid confusion during implementation.
 
+3. use defaultdict for dictionary and hashmap in python
+   - Default dict doesn't raise keyError when it is not present so lots of boundary cases are handled by default 
+   - With the `{}` type default dict in python we always have to search over keys if the given key is present or not, which makes computation time higher.
 ---
 
 ### Tricks for Linked Lists
@@ -89,3 +92,44 @@ In this I am discussing soft skills and tricks that I have learned in my experie
    largest_nodes = heapq.nlargest(2, nodes)  # Get the 2 largest nodes
    smallest_nodes = heapq.nsmallest(2, nodes)  # Get the 2 smallest nodes
    ```
+2. **Using defaultdict from collection for dictionary**
+
+```python
+from collections import defaultdict
+# if someone tries to access a element that doesn't exist it return default value
+# so the initiation of key-value can be very seamless 
+
+dicti = defaultdict(int)
+dicti[3] +=1 # till now key 3 doesn't exist so it throws 0 and add one to it
+
+
+# Default value 0 (int() returns 0)
+int_default = defaultdict(int)
+print(int_default['a'])  # Output: 0
+
+# Default value is an empty list
+list_default = defaultdict(list)
+print(list_default['b'])  # Output: []
+
+# Default value is an empty dict
+dict_default = defaultdict(dict)
+print(dict_default['c'])  # Output: {}
+
+# Custom default value (function returning 42)
+def custom_value(): return 42
+custom_default = defaultdict(custom_value)
+print(custom_default['x'])  # Output: 42
+
+# Using lambda to set a custom default value
+lambda_default = defaultdict(lambda: 100)
+print(lambda_default['y'])  # Output: 100
+
+# Default value as an empty set
+set_default = defaultdict(set)
+print(set_default['z'])  # Output: set()
+
+# Nested defaultdict with int as inner default
+nested_default = defaultdict(lambda: defaultdict(int))
+print(nested_default['a']['b'])  # Output: 0
+```
+```

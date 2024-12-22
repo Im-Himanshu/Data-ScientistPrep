@@ -68,7 +68,7 @@
 # Important Concept in DeepLearning 
 1. [Data Science Interview MindSet by Krish Naik](https://www.youtube.com/watch?v=613lId6jm7g&ab_channel=KrishNaik)
 2. [Topics to Prepare Krish nair](https://www.youtube.com/watch?v=8Q5F_AQ9OGo&ab_channel=KrishNaik)
-3. [Self Notes- ActivationFunction.md](Activation_function.md) , [Activation Functions and their derivates](https://dustinstansbury.github.io/theclevermachine/derivation-common-neural-network-activation-functions), [source-2](https://medium.com/@Coursesteach/deep-learning-part-25-derivatives-of-activation-functions-4bbd7c7c7a1c)
+3. [Self Notes- ActivationFunction.md](DataScience-Notes/Activation_function.md) , [Activation Functions and their derivates](https://dustinstansbury.github.io/theclevermachine/derivation-common-neural-network-activation-functions), [source-2](https://medium.com/@Coursesteach/deep-learning-part-25-derivatives-of-activation-functions-4bbd7c7c7a1c)
 4. [Self-Notes - BiasvsVariance](./DataScience-Notes/BiasVsVariance-TradeOff.md)
 4. [Full Implmentation of ANN](https://www.youtube.com/watch?v=OTTOglLJxLU&list=PLZoTAELRMXVPGU70ZGsckrMdr0FteeRUi&index=17)
 5. [Weight Initialization video](https://www.youtube.com/watch?v=tMjdQLylyGI&list=PLZoTAELRMXVPGU70ZGsckrMdr0FteeRUi&index=11&ab_channel=KrishNaik) and [article](https://towardsdatascience.com/weight-initialization-in-neural-networks-a-journey-from-the-basics-to-kaiming-954fb9b47c79)
@@ -76,7 +76,7 @@
     2. Randome Initialization : np.rand.random
     3. Xavier/Gorat Initialization : root(2/fan_in+fan_out) works well with sigmoid
     4. He_ Initialization : Works well with RELU Activation
-5. [Regularization](https://github.com/mbadry1/DeepLearning.ai-Summary/tree/master/2-%20Improving%20Deep%20Neural%20Networks#regularization) : Reducing overfitting and underfitting
+5. [Optimizer and Regularization- self-notes](./DataScience-Notes/Regularizer%20and%20Optimizers.md), [Regularization](https://github.com/mbadry1/DeepLearning.ai-Summary/tree/master/2-%20Improving%20Deep%20Neural%20Networks#regularization) : Reducing overfitting and underfitting
     1. [L1](https://towardsdatascience.com/intuitions-on-l1-and-l2-regularisation-235f2db4c261)
     2. [L2s ](https://towardsdatascience.com/l1-and-l2-regularization-methods-ce25e7fc831c)
     3. Dropout

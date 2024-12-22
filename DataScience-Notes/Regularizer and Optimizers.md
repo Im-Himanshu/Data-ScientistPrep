@@ -1,31 +1,38 @@
 # My Notes 
+
 ## Regularization: 
 Any modification done to reduce the variance in the model at the cost of bias is regularization.
-i.e. L1 and L2 and the direct impact is, cost function is added with the magnitude of the weights so to penalize large value of it
+i.e. L1 and L2 and the direct impact is, cost function is added with the magnitude of the weights so to penalize large value of it.
 Other methods are:
 - L1 and L2
 - Dropout
-- early stopping
+- Early stopping
 
 One thing common about Regularizer is the direct impact on the weights to reduce its complexity and making it dumber.
 
 ## Optimizer
-Optimizer is the overall weight update strategy for the model. Optimizer in itself doesnot effect back propogation calculations unlike the Regularizer but the actual update done in weight is affected by it.
-1. **Stochastic Gradient Decent** : most straight way to directly subtracting the average derivative of all example 
-2. **SGD with momentum**: we take exponential moving average of gradient descent and make the changes smoother over iterations
-3. **RMS Prop**: Root mean square prop, using momentum term in division
+Optimizer is the overall weight update strategy for the model. Optimizer in itself does not affect back-propagation calculations unlike the Regularizer but the actual update done in weight is affected by it.
+1. **Stochastic Gradient Descent**: Most straightforward way to directly subtract the average derivative of all examples. 
+2. **SGD with Momentum**: We take the exponential moving average of gradient descent and make the changes smoother over iterations.
+3. **RMS Prop**: Root mean square prop, using a momentum term in division.
 4. **ADAM**
 
 ---
+
 ## Regularization  
 Regularization reduces overfitting by adding a penalty to the loss function to discourage overly complex models.  
 
 ### How It Works  
 Regularization modifies the loss function as follows:  
 - **L1 Regularization**:  
-  $$Loss_{total} = Loss_{data} + \lambda \sum |w| $$  
+```math
+Loss_{total} = Loss_{data} + \lambda \sum |w|
+```
+
 - **L2 Regularization**:  
-  $$Loss_{total} = Loss_{data} + \lambda \sum w^2$$  
+```math
+Loss_{total} = Loss_{data} + \lambda \sum w^2
+```
 
 ### Methods  
 1. **L1 and L2**: Penalize large weights to encourage sparsity (L1) or reduce complexity (L2).  
@@ -41,45 +48,50 @@ Optimizers define the strategy for updating model weights to minimize the loss f
 ### Types  
 1. **Stochastic Gradient Descent (SGD)**:  
    Updates weights by subtracting the gradient of the loss function, averaged over all examples:  
-   $$w_{t+1} = w_t - \eta \cdot \nabla_w Loss $$  
-
-<div style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
-$$
-\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
-$$
-</div>
-
 ```math
-\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
+w_{t+1} = w_t - \eta \cdot \nabla_w Loss
 ```
 
 2. **SGD with Momentum**:  
    Smoothens updates by incorporating an exponential moving average of gradients:  
-   $$v_t = \beta v_{t-1} + (1 - \beta) \nabla_w Loss$$  
-   $$w_{t+1} = w_t - \eta v_t$$  
+```math
+v_t = \beta v_{t-1} + (1 - \beta) \nabla_w Loss
+```
+```math
+w_{t+1} = w_t - \eta v_t
+```
 
 3. **RMSProp (Root Mean Square Propagation)**:
-The Proposition is to change learning rate(alpha) in proportion to the magnitude of the gradient. ie. learning rate will be faster (also exponentially smoothen) for large gradient.
-Generally we expect weights to higher in early stage so learning rate will be higher and as model gets trained alpha reduces to minimal making training of model stable till the end and enabling to reach global minima.
-
-
-     Scales the learning rate by the moving average of squared gradients:   
-   $$w_{t+1} = w_t - \frac{\eta}{\sqrt{E[g^2]_t + \epsilon}} \cdot \nabla_w Loss$$  
-   - RMSprop will make the cost function move slower on the vertical direction and faster on the horizontal direction in the following
-   ![img.png](../Assets/rms_prop.png)
+The proposition is to change the learning rate (alpha) in proportion to the magnitude of the gradient, i.e., the learning rate will be faster (also exponentially smoothened) for a large gradient.  
+Generally, we expect weights to be higher in the early stage, so the learning rate will be higher, and as the model gets trained, alpha reduces to a minimum, making training stable till the end and enabling it to reach the global minima.  
+Scales the learning rate by the moving average of squared gradients:   
+```math
+w_{t+1} = w_t - \frac{\eta}{\sqrt{E[g^2]_t + \epsilon}} \cdot \nabla_w Loss
+```
 
 4. **Adam (Adaptive Moment Estimation)**:  
    Combines momentum and RMSProp for adaptive learning rates:  
-   $$m_t = \beta_1 m_{t-1} + (1 - \beta_1) \nabla_w Loss$$  
-   $$v_t = \beta_2 v_{t-1} + (1 - \beta_2) (\nabla_w Loss)^2$$  
-   $$w_{t+1} = w_t - \frac{\eta \cdot m_t}{\sqrt{v_t} + \epsilon}$$  
-5. **Adagrad (Adaptive Gradient Algorithm)**
-Adagrad adjusts the learning rate for each parameter based on the cumulative sum of squared gradients:  
-$$w_{t+1} = w_t - \frac{\eta}{\sqrt{G_t + \epsilon}} \cdot g_t$$  
-- $` G_t = \sum_{i=1}^t g_i^2 `$: Cumulative squared gradients.  
-- $`\eta `$: Initial learning rate.  
-- $`\epsilon `$: Small constant to prevent division by zero.
+```math
+m_t = \beta_1 m_{t-1} + (1 - \beta_1) \nabla_w Loss
+```
+```math
+v_t = \beta_2 v_{t-1} + (1 - \beta_2) (\nabla_w Loss)^2
+```
+```math
+w_{t+1} = w_t - \frac{\eta \cdot m_t}{\sqrt{v_t} + \epsilon}
+```
 
+5. **Adagrad (Adaptive Gradient Algorithm)**  
+Adagrad adjusts the learning rate for each parameter based on the cumulative sum of squared gradients:  
+```math
+w_{t+1} = w_t - \frac{\eta}{\sqrt{G_t + \epsilon}} \cdot g_t
+```
+- ```math G_t = \sum_{i=1}^t g_i^2 ```: Cumulative squared gradients.  
+- ```math \eta ```: Initial learning rate.  
+- ```math \epsilon ```: Small constant to prevent division by zero.
+```
+
+This formatting will ensure that all mathematical expressions are properly enclosed in `math` blocks for consistent rendering.
 
   **Intuition**  
   1. Parameters with **frequent large gradients** get smaller updates (learning rate decreases).  

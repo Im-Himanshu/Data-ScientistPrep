@@ -28,7 +28,6 @@ Regularization modifies the loss function as follows:
 ```math
 Loss_{total} = Loss_{data} + \lambda \sum |w|
 ```
-
 - **L2 Regularization**:  
 ```math
 Loss_{total} = Loss_{data} + \lambda \sum w^2
@@ -56,8 +55,7 @@ w_{t+1} = w_t - \eta \cdot \nabla_w Loss
    Smoothens updates by incorporating an exponential moving average of gradients:  
 ```math
 v_t = \beta v_{t-1} + (1 - \beta) \nabla_w Loss
-```
-\
+``` 
 ```math
 w_{t+1} = w_t - \eta v_t
 ```
@@ -75,12 +73,17 @@ w_{t+1} = w_t - \frac{\eta}{\sqrt{E[g^2]_t + \epsilon}} \cdot \nabla_w Loss
 ```math
 m_t = \beta_1 m_{t-1} + (1 - \beta_1) \nabla_w Loss
 ```
+  
+
 ```math
 v_t = \beta_2 v_{t-1} + (1 - \beta_2) (\nabla_w Loss)^2
 ```
+  
+
 ```math
 w_{t+1} = w_t - \frac{\eta \cdot m_t}{\sqrt{v_t} + \epsilon}
 ```
+  
 
 5. **Adagrad (Adaptive Gradient Algorithm)**  
 Adagrad adjusts the learning rate for each parameter based on the cumulative sum of squared gradients:  

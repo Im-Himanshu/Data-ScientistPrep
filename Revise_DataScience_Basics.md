@@ -114,7 +114,7 @@
     Random Undersampling: Randomly delete examples in the majority class.
 13. Object Detection
     1. [All Backbone Networks Explained](https://youtu.be/xxHkbWMILjI?list=PLkRLdi-c79HKEWoi4oryj-Cx-e47y_NcM&t=1288)
-        1. [Resnet](https://youtu.be/xxHkbWMILjI?list=PLkRLdi-c79HKEWoi4oryj-Cx-e47y_NcM&t=1288)
+        1. [Resnet-AndrewNg Notes](./DeepLearning.ai-Summary-master/4-%20Convolutional%20Neural%20Networks/Readme.md#residual-networks-resnets) , [My Notes: Resent Intutions](./DataScience-Notes/Why_ResnNets_&_intutions.md)
         2. [Inception](https://youtu.be/xxHkbWMILjI?list=PLkRLdi-c79HKEWoi4oryj-Cx-e47y_NcM&t=2267)
         3. [YOlO]()
         4. [EfficientNet - NAS (Neural archt search)](https://www.youtube.com/watch?v=GOxRSefbBoI&ab_channel=CodeWithAarohi)

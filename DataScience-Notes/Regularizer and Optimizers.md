@@ -56,8 +56,7 @@ w_{t+1} = w_t - \eta \cdot \nabla_w Loss
    Smoothens updates by incorporating an exponential moving average of gradients:  
 ```math
 v_t = \beta v_{t-1} + (1 - \beta) \nabla_w Loss
-```
-```math
+
 w_{t+1} = w_t - \eta v_t
 ```
 
@@ -73,11 +72,9 @@ w_{t+1} = w_t - \frac{\eta}{\sqrt{E[g^2]_t + \epsilon}} \cdot \nabla_w Loss
    Combines momentum and RMSProp for adaptive learning rates:  
 ```math
 m_t = \beta_1 m_{t-1} + (1 - \beta_1) \nabla_w Loss
-```
-```math
+
 v_t = \beta_2 v_{t-1} + (1 - \beta_2) (\nabla_w Loss)^2
-```
-```math
+
 w_{t+1} = w_t - \frac{\eta \cdot m_t}{\sqrt{v_t} + \epsilon}
 ```
 
@@ -86,10 +83,9 @@ Adagrad adjusts the learning rate for each parameter based on the cumulative sum
 ```math
 w_{t+1} = w_t - \frac{\eta}{\sqrt{G_t + \epsilon}} \cdot g_t
 ```
-- ```math G_t = \sum_{i=1}^t g_i^2 ```: Cumulative squared gradients.  
-- ```math \eta ```: Initial learning rate.  
-- ```math \epsilon ```: Small constant to prevent division by zero.
-```
+- $`G_t = \sum_{i=1}^t g_i^2 `$: Cumulative squared gradients.  
+- $`\eta`$: Initial learning rate.  
+- $`\epsilon`$: Small constant to prevent division by zero.
 
 This formatting will ensure that all mathematical expressions are properly enclosed in `math` blocks for consistent rendering.
 
@@ -103,20 +99,6 @@ This formatting will ensure that all mathematical expressions are properly enclo
   
   **Weaknesses**  
   - The **cumulative sum** of squared gradients causes the learning rate to shrink indefinitely, leading to premature convergence.
-
----
-
-### **Intuition**  
-1. Parameters with **frequent large gradients** get smaller updates (learning rate decreases).  
-2. Parameters with **infrequent small gradients** get larger updates (learning rate increases).  
-
-### **Strengths**  
-- Works well for **sparse data** or features (e.g., natural language processing).  
-- Automatically adjusts learning rates based on gradient history.
-
-### **Weaknesses**  
-- The **cumulative sum** of squared gradients causes the learning rate to shrink indefinitely, leading to premature convergence.
-
 
 ---
 

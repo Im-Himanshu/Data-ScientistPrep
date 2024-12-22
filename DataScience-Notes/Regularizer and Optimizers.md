@@ -1,10 +1,11 @@
 # My Notes 
 ## Regularization: 
-Any step take to reduce the variance in the model at the cost of bias is regularization.
-in layman terms L1 and L2 and the direct impact is cost function is added with the magnitude of the weights so to penalize large va;lue of it
+Any modification done to reduce the variance in the model at the cost of bias is regularization.
+i.e. L1 and L2 and the direct impact is, cost function is added with the magnitude of the weights so to penalize large value of it
 Other methods are:
 - L1 and L2
 - Dropout
+- early stopping
 
 One thing common about Regularizer is the direct impact on the weights to reduce its complexity and making it dumber.
 
@@ -15,20 +16,16 @@ Optimizer is the overall weight update strategy for the model. Optimizer in itse
 3. **RMS Prop**: Root mean square prop, using momentum term in division
 4. **ADAM**
 
-
+---
 ## Regularization  
 Regularization reduces overfitting by adding a penalty to the loss function to discourage overly complex models.  
 
 ### How It Works  
 Regularization modifies the loss function as follows:  
 - **L1 Regularization**:  
-  $$  
-  Loss_{total} = Loss_{data} + \lambda \sum |w|  
-  $$  
+  $$Loss_{total} = Loss_{data} + \lambda \sum |w| $$  
 - **L2 Regularization**:  
-  $$  
-  Loss_{total} = Loss_{data} + \lambda \sum w^2  
-  $$  
+  $$ Loss_{total} = Loss_{data} + \lambda \sum w^2 $$  
 
 ### Methods  
 1. **L1 and L2**: Penalize large weights to encourage sparsity (L1) or reduce complexity (L2).  
@@ -43,39 +40,61 @@ Optimizers define the strategy for updating model weights to minimize the loss f
 
 ### Types  
 1. **Stochastic Gradient Descent (SGD)**:  
-   Updates weights by subtracting the gradient of the loss function:  
-   $$  
-   w_{t+1} = w_t - \eta \cdot \nabla_w Loss  
-   $$  
+   Updates weights by subtracting the gradient of the loss function, averaged over all examples:  
+   $$ w_{t+1} = w_t - \eta \cdot \nabla_w Loss $$  
 
 2. **SGD with Momentum**:  
    Smoothens updates by incorporating an exponential moving average of gradients:  
-   $$  
-   v_t = \beta v_{t-1} + (1 - \beta) \nabla_w Loss  
-   $$  
-   $$  
-   w_{t+1} = w_t - \eta v_t  
-   $$  
+   $$  v_t = \beta v_{t-1} + (1 - \beta) \nabla_w Loss  $$  
+   $$  w_{t+1} = w_t - \eta v_t  $$  
 
-   3. **RMSProp (Root Mean Square Propagation)**:  
-      Scales the learning rate by the moving average of squared gradients:  
-      $$  
-      w_{t+1} = w_t - \frac{\eta}{\sqrt{E[g^2]_t + \epsilon}} \cdot \nabla_w Loss  
-      $$  
+3. **RMSProp (Root Mean Square Propagation)**:
+The Proposition is to change learning rate(alpha) in proportion to the magnitude of the gradient. ie. learning rate will be faster (also exponentially smoothen) for large gradient.
+Generally we expect weights to higher in early stage so learning rate will be higher and as model gets trained alpha reduces to minimal making training of model stable till the end and enabling to reach global minima.
+
+
+     Scales the learning rate by the moving average of squared gradients:   
+   $$ w_{t+1} = w_t - \frac{\eta}{\sqrt{E[g^2]_t + \epsilon}} \cdot \nabla_w Loss $$  
    - RMSprop will make the cost function move slower on the vertical direction and faster on the horizontal direction in the following
    ![img.png](../Assets/rms_prop.png)
 
 4. **Adam (Adaptive Moment Estimation)**:  
    Combines momentum and RMSProp for adaptive learning rates:  
-   $$  
-   m_t = \beta_1 m_{t-1} + (1 - \beta_1) \nabla_w Loss  
-   $$  
-   $$  
-   v_t = \beta_2 v_{t-1} + (1 - \beta_2) (\nabla_w Loss)^2  
-   $$  
-   $$  
-   w_{t+1} = w_t - \frac{\eta \cdot m_t}{\sqrt{v_t} + \epsilon}  
-   $$  
+   $$m_t = \beta_1 m_{t-1} + (1 - \beta_1) \nabla_w Loss$$  
+   $$v_t = \beta_2 v_{t-1} + (1 - \beta_2) (\nabla_w Loss)^2$$  
+   $$w_{t+1} = w_t - \frac{\eta \cdot m_t}{\sqrt{v_t} + \epsilon}$$  
+5. **Adagrad (Adaptive Gradient Algorithm)**
+Adagrad adjusts the learning rate for each parameter based on the cumulative sum of squared gradients:  
+$$w_{t+1} = w_t - \frac{\eta}{\sqrt{G_t + \epsilon}} \cdot g_t$$  
+- $` G_t = \sum_{i=1}^t g_i^2 `$: Cumulative squared gradients.  
+- $`\eta `$: Initial learning rate.  
+- $`\epsilon `$: Small constant to prevent division by zero.
+
+
+  **Intuition**  
+  1. Parameters with **frequent large gradients** get smaller updates (learning rate decreases).  
+  2. Parameters with **infrequent small gradients** get larger updates (learning rate increases).  
+  
+  **Strengths**  
+  - Works well for **sparse data** or features (e.g., natural language processing).  
+  - Automatically adjusts learning rates based on gradient history.
+  
+  **Weaknesses**  
+  - The **cumulative sum** of squared gradients causes the learning rate to shrink indefinitely, leading to premature convergence.
+
+---
+
+### **Intuition**  
+1. Parameters with **frequent large gradients** get smaller updates (learning rate decreases).  
+2. Parameters with **infrequent small gradients** get larger updates (learning rate increases).  
+
+### **Strengths**  
+- Works well for **sparse data** or features (e.g., natural language processing).  
+- Automatically adjusts learning rates based on gradient history.
+
+### **Weaknesses**  
+- The **cumulative sum** of squared gradients causes the learning rate to shrink indefinitely, leading to premature convergence.
+
 
 ---
 

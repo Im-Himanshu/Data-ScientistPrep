@@ -142,51 +142,86 @@ Both regularization and optimizers work together to ensure the model is efficien
 - There is a partial solution that doesn't completely solve this problem but it helps a lot - careful choice of how you initialize the weights (next video).
 
 
+Here is the reformatted markdown for improved readability and organization:
+
+# Vanishing and Exploding Gradients
+
 [Good article on this Neptune.ai](https://neptune.ai/blog/vanishing-and-exploding-gradients-debugging-monitoring-fixing)
 
-Here are the excerpt  and intuition of it
+## Excerpt and Intuition
 
-Why vanishing or exploding gradients problem happens?
-With this intuitive understanding of what vanishing/exploding gradients are, you must be wondering – why do gradients vanish or explode in the first place, i.e., why do these gradient values diminish or blow up in their travel back through the network?
+### Why does the vanishing or exploding gradient problem happen?
 
-Vanishing 
-Simply put, the vanishing gradients issue occurs when we use the Sigmoid or Tanh activation functions in the hidden layer; these functions squish a large input space into a small space. Take the Sigmoid as an example, we have the following p.d.f.:
-![img.png](../Assets/veg_1.png)
-Vanishing
-Taking the derivative w.r.t. the parameter x, we get:
-![img_1.png](../Assets/veg_2.png)
+With this intuitive understanding of what vanishing/exploding gradients are, you must be wondering:  
+Why do gradients vanish or explode in the first place, i.e., why do these gradient values diminish or blow up in their travel back through the network?
 
-Vanishing
-and if we visualize the Sigmoid function and its derivative:
-![img_2.png](../Assets/veg_3.png)
-Sigmoid function and it's derivative
-Sigmoid function and its derivative | Source: Author 
-We can see that the Sigmoid function squeezes our input space into a range between [0,1], and when the inputs become fairly small or fairly large, this function saturates at 0 or 1. These regions are referred to as ‘saturating regions’, whose derivatives become extremely close to zero. The same applies to the Tanh function that saturates at -1 and 1.
+---
 
-Suppose that we have inputs that lie in any of the saturating regions, we would essentially have no gradient values to propagate back, leading to a zero update in earlier layer weights. Usually, this is no big of a concern for shallow networks with just a couple of layers, however, when we add more layers, vanishing gradients in initial layers will result in model training or convergence failure. 
+### **Vanishing Gradients**
 
-This is due to the effect of multiplying n of these small numbers to compute gradients of the early layers in an n-layer network, meaning that the gradient decreases exponentially with n while the early layers train very slowly and thus the performance of the entire network degrades. 
+The vanishing gradient issue occurs when using the **Sigmoid** or **Tanh** activation functions in the hidden layers. These functions squish a large input space into a small space.  
 
-Exploding 
-Moving on to the exploding gradients, in a nutshell, this problem is due to the initial weights assigned to the neural nets creating large losses. Big gradient values can accumulate to the point where large parameter updates are observed, causing gradient descents to oscillate without coming to global minima. 
+#### Example: Sigmoid Function
+The Sigmoid has the following p.d.f.:
 
-What’s even worse is that these parameters can be so large that they overflow and return NaN values that cannot be updated anymore. 
+![Sigmoid Function](../Assets/veg_1.png)
 
+Taking the derivative with respect to the parameter \( x \), we get:
 
-My Notes:
+![Derivative of Sigmoid](../Assets/veg_2.png)
 
-Intuition is because sigmoid and tanh has a very large range of x for which its value is same (i.e. derivative ==0) except for (-1,1), it is more than likely that its value is very close to zero.
-Due to which deep layer in the back which gets multiple of all ahead layers activation function gradient tend towards zero. 
-To overcome this Relu (LeakyRelu) is used, it is on another extreme with same gradient ==1 for all x and ==0 for x <0, so it handles the leaky problem well.
+If we visualize the Sigmoid function and its derivative:
 
-But the original argument of using the activation function was to introduce non-linearity in the model, which we have kind of get rid off. The thing is the sharp kink in Relu is enough to introduce non-linearity in
-deep neural networks.
+![Sigmoid and its Derivative](../Assets/veg_3.png)
 
+**Key Observation**:  
+- The Sigmoid function squeezes the input space into a range between \([0, 1]\).  
+- For inputs that are very small or very large, the function saturates at 0 or 1, referred to as the **saturating regions**.  
+- In these regions, the derivatives become extremely close to zero.
 
-For exploding gradient, problem lies mostly in initiation when weights get too high value.
+The same behavior applies to the Tanh function, which saturates at -1 and 1.
 
+#### Problem with Saturating Regions
+- If the inputs lie in the saturating regions, gradients effectively vanish, leading to no weight updates for earlier layers.  
+- This issue becomes more prominent in deep networks, where the gradients of initial layers diminish exponentially with the number of layers \( n \), causing the training to fail or converge extremely slowly.
 
-# Notes about L1 and L2 regularization 
+---
 
-Derivative of L1 weight term is fixed while for L2 it has the same weight magnitude so L2 punishes W according to its weight while L1 punish them all equally.
-hence we expect L1 to be more sparsed i.e. lots of terms in the weight matrix to be zero.
+### **Exploding Gradients**
+
+The exploding gradient problem arises due to large initial weights assigned to the neural network.  
+
+#### Key Points:
+- Large gradient values accumulate, resulting in large parameter updates.  
+- This leads to oscillations in gradient descent, preventing convergence to the global minima.  
+- In extreme cases, the parameters can overflow, resulting in NaN values that halt training.
+
+---
+
+## **My Notes**
+
+### Vanishing Gradients:
+- **Cause**: Sigmoid and Tanh have very small derivatives (close to zero) outside the range \((-1, 1)\).  
+- **Impact**: Gradients for deep layers multiply through the chain, eventually tending towards zero.  
+- **Solution**:  
+  - Use **ReLU** (or Leaky ReLU) activation functions.  
+  - ReLU gradients are 1 for \( x > 0 \) and 0 for \( x \leq 0 \), effectively avoiding the vanishing gradient issue.  
+
+**Trade-off**:  
+While ReLU introduces sharp kinks for non-linearity, it may reduce the non-linearity in the model compared to Sigmoid/Tanh. However, the sharp kinks are sufficient for deep neural networks.
+
+### Exploding Gradients:
+- **Cause**: Improper initialization where weights are assigned excessively large values.  
+- **Impact**: Gradients grow uncontrollably, causing instability in training.
+
+---
+
+# Notes about L1 and L2 Regularization
+
+### Derivatives:
+- **L1 Regularization**: The derivative of the weight term is fixed, applying an equal penalty to all weights.  
+- **L2 Regularization**: The derivative is proportional to the weight magnitude, penalizing larger weights more heavily.
+
+### Impact:
+- **L1 Regularization**: Encourages sparsity in the weight matrix, resulting in many weights being exactly zero.  
+- **L2 Regularization**: Reduces the magnitude of weights but does not necessarily lead to sparsity.

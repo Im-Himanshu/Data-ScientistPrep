@@ -55,7 +55,7 @@ w_{t+1} = w_t - \eta \cdot \nabla_w Loss
 2. **SGD with Momentum**:  
    Smoothens updates by incorporating an exponential moving average of gradients:  
 ```math
-v_t = \beta v_{t-1} + (1 - \beta) \nabla_w Loss\
+v_t = \beta v_{t-1} + (1 - \beta) \nabla_w Loss \\
 w_{t+1} = w_t - \eta v_t
 ```
 

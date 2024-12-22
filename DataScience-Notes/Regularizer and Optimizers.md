@@ -55,8 +55,7 @@ w_{t+1} = w_t - \eta \cdot \nabla_w Loss
 2. **SGD with Momentum**:  
    Smoothens updates by incorporating an exponential moving average of gradients:  
 ```math
-v_t = \beta v_{t-1} + (1 - \beta) \nabla_w Loss
-
+v_t = \beta v_{t-1} + (1 - \beta) \nabla_w Loss \
 w_{t+1} = w_t - \eta v_t
 ```
 
@@ -72,9 +71,11 @@ w_{t+1} = w_t - \frac{\eta}{\sqrt{E[g^2]_t + \epsilon}} \cdot \nabla_w Loss
    Combines momentum and RMSProp for adaptive learning rates:  
 ```math
 m_t = \beta_1 m_{t-1} + (1 - \beta_1) \nabla_w Loss
-
+```
+```math
 v_t = \beta_2 v_{t-1} + (1 - \beta_2) (\nabla_w Loss)^2
-
+```
+```math
 w_{t+1} = w_t - \frac{\eta \cdot m_t}{\sqrt{v_t} + \epsilon}
 ```
 

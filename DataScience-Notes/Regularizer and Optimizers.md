@@ -25,7 +25,7 @@ Regularization modifies the loss function as follows:
 - **L1 Regularization**:  
   $$Loss_{total} = Loss_{data} + \lambda \sum |w| $$  
 - **L2 Regularization**:  
-  $$ Loss_{total} = Loss_{data} + \lambda \sum w^2 $$  
+  $$Loss_{total} = Loss_{data} + \lambda \sum w^2$$  
 
 ### Methods  
 1. **L1 and L2**: Penalize large weights to encourage sparsity (L1) or reduce complexity (L2).  
@@ -41,12 +41,19 @@ Optimizers define the strategy for updating model weights to minimize the loss f
 ### Types  
 1. **Stochastic Gradient Descent (SGD)**:  
    Updates weights by subtracting the gradient of the loss function, averaged over all examples:  
-   $$ w_{t+1} = w_t - \eta \cdot \nabla_w Loss $$  
+   $$w_{t+1} = w_t - \eta \cdot \nabla_w Loss $$  
+
+<div style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
+$$
+\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
+$$
+</div>
+
 
 2. **SGD with Momentum**:  
    Smoothens updates by incorporating an exponential moving average of gradients:  
-   $$  v_t = \beta v_{t-1} + (1 - \beta) \nabla_w Loss  $$  
-   $$  w_{t+1} = w_t - \eta v_t  $$  
+   $$v_t = \beta v_{t-1} + (1 - \beta) \nabla_w Loss$$  
+   $$w_{t+1} = w_t - \eta v_t$$  
 
 3. **RMSProp (Root Mean Square Propagation)**:
 The Proposition is to change learning rate(alpha) in proportion to the magnitude of the gradient. ie. learning rate will be faster (also exponentially smoothen) for large gradient.
@@ -54,7 +61,7 @@ Generally we expect weights to higher in early stage so learning rate will be hi
 
 
      Scales the learning rate by the moving average of squared gradients:   
-   $$ w_{t+1} = w_t - \frac{\eta}{\sqrt{E[g^2]_t + \epsilon}} \cdot \nabla_w Loss $$  
+   $$w_{t+1} = w_t - \frac{\eta}{\sqrt{E[g^2]_t + \epsilon}} \cdot \nabla_w Loss$$  
    - RMSprop will make the cost function move slower on the vertical direction and faster on the horizontal direction in the following
    ![img.png](../Assets/rms_prop.png)
 

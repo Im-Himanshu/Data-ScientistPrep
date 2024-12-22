@@ -30,7 +30,7 @@ In this I am discussing soft skills and tricks that I have learned in my experie
 
 3. **Sorting Linked Lists**
    - If sorting is needed, convert values to an array and use `arr.sort()`. This is more space complex but simpler than implementing a sort from scratch.
-   - When implementing sorting, use:
+   - if it comes to that and have to implement sorting, use:
      - **Merge Sort** for time complexity.
      - **Bubble Sort** for quicker coding time.
    - There is an implementation of linked list sorting in [code-samples/linked_list.py](./code_samples/linked_list.py) of this directory.
@@ -131,5 +131,42 @@ print(set_default['z'])  # Output: set()
 # Nested defaultdict with int as inner default
 nested_default = defaultdict(lambda: defaultdict(int))
 print(nested_default['a']['b'])  # Output: 0
+
 ```
+2. **Using Python sort with custom sort criterion**
+
+```python
+
+# method-1 Lambda function - works in most of the cases 
+alist = [<foo-1>, <foo-2>] # list of foo object
+alist.sort(key=lambda x: x.foo) # define lambda mapping to the value on which comparison has to be done
+
+
+# method-2 - pass a custom function yourself
+from functools import cmp_to_key
+# Custom comparator
+def custom_comparator(x, y):
+    if x > y:
+        return 1  # x should come after y
+    elif x < y:
+        return -1  # x should come before y
+    else:
+        return 0  # x and y are equal
+
+array = [5, 2, 9, 1, 5, 6]
+array.sort(key=cmp_to_key(custom_comparator))  # Ascending
+print(array)  # [1, 2, 5, 5, 6, 9]
+
+
+# method-3 is simple to code but difficult to understand 
+# it is about overwritting the str class itself 
+
+class LargerNumKey(str):
+    def __lt__(x, y):
+        # Compare x+y with y+x in reverse order to get descending order
+        # do some comparison here, return true or false
+        return x+y > y+x
+# and pass this class as key argument in the sort function 
+nums.sort(key=LargerNumKey)
+
 ```

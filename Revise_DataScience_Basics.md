@@ -1,7 +1,7 @@
 # All Resources for Basic Revision
 
 1. [Krish Naik Deep Learning Series](https://www.youtube.com/watch?v=JkeiEYkLEvM&list=PLZoTAELRMXVPGU70ZGsckrMdr0FteeRUi)
-2. [Deeplearning.ai by AndrewNG Notes](https://github.com/mbadry1/DeepLearning.ai-Summary)
+2. [Deeplearning.ai by AndrewNG Notes](./DeepLearning.ai-Summary-master/Readme.md)
 3. [Deeplearning.ai by AndrewNG Notes and assignments too](https://github.com/amanchadha/coursera-deep-learning-specialization/tree/master)
 3. Deeplearning.ai by AndrewNG Videos 
    * [Course-1 Neural Network and Deep Learning](https://www.youtube.com/watch?v=CS4cs9xVecg&list=PLkDaE6sCZn6Ec-XTbcX1uRg2_u4xOEky0&ab_channel=DeepLearningAI)
@@ -68,7 +68,8 @@
 # Important Concept in DeepLearning 
 1. [Data Science Interview MindSet by Krish Naik](https://www.youtube.com/watch?v=613lId6jm7g&ab_channel=KrishNaik)
 2. [Topics to Prepare Krish nair](https://www.youtube.com/watch?v=8Q5F_AQ9OGo&ab_channel=KrishNaik)
-3. [Activation Functions and their derivates](https://dustinstansbury.github.io/theclevermachine/derivation-common-neural-network-activation-functions), [source-2](https://medium.com/@Coursesteach/deep-learning-part-25-derivatives-of-activation-functions-4bbd7c7c7a1c)
+3. [Self Notes- ActivationFunction.md](Activation_function.md) , [Activation Functions and their derivates](https://dustinstansbury.github.io/theclevermachine/derivation-common-neural-network-activation-functions), [source-2](https://medium.com/@Coursesteach/deep-learning-part-25-derivatives-of-activation-functions-4bbd7c7c7a1c)
+4. [Self-Notes - BiasvsVariance](./DataScience-Notes/BiasVsVariance-TradeOff.md)
 4. [Full Implmentation of ANN](https://www.youtube.com/watch?v=OTTOglLJxLU&list=PLZoTAELRMXVPGU70ZGsckrMdr0FteeRUi&index=17)
 5. [Weight Initialization video](https://www.youtube.com/watch?v=tMjdQLylyGI&list=PLZoTAELRMXVPGU70ZGsckrMdr0FteeRUi&index=11&ab_channel=KrishNaik) and [article](https://towardsdatascience.com/weight-initialization-in-neural-networks-a-journey-from-the-basics-to-kaiming-954fb9b47c79)
     1. Zero Initializarion : all Zeros not for ANN

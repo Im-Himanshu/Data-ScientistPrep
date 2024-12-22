@@ -1,3 +1,6 @@
+## New
+Read Ishan lecture code, in order they are best for me as of now.
+
 # Dynamic Programming 
 1. [GeeksForGeeks](https://www.geeksforgeeks.org/dynamic-programming/) Solve Problem at the end of it 
 

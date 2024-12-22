@@ -165,7 +165,6 @@ The vanishing gradient issue occurs when using the **Sigmoid** or **Tanh** activ
 The Sigmoid has the following p.d.f.:
 
 ![Sigmoid Function](../Assets/veg_1.png)
-
 Taking the derivative with respect to the parameter \( x \), we get:
 
 ![Derivative of Sigmoid](../Assets/veg_2.png)

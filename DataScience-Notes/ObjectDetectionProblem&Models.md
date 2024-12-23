@@ -25,15 +25,12 @@ Later in post-processing we have to perform NMS and IoU filtering which is drawb
 ---
 
 # R-CNN, Fast-RCNN, Faster RCNN
+[Article](https://www.digitalocean.com/community/tutorials/faster-r-cnn-explained-object-detection)
 Note: R here stands for Region proposal CNN and not `recurrent`
 
-In general any object detection requires
+**Region proposal network**: a network that tells us if any class is present in the given area of image or not, this is checked using FCN that at the end layer tells which blocks contains objects. Detailed are like YOLOX where the last layer only has one output for one proposal layer. From all the proposal where we have detected the object the object is inside it not sure where exactly so the later network take these proposal and tell where exactly are the object of interest located in the original image. In a gist, this network aim is to convolute through the image (generally in a fixed shape convolution) and tell us the region in which there is an object in simple yes or no style. This can be implemented in RCNN, Fast-RCNN and Faster-RCNN
 
-1. **Region proposal network**: a network that tells us if any class is present in the given area of image or not, this is checked using FCN that at the end layer tells which blocks contains objects. Detailed are like YOLOX where the last layer only has one output for one proposal layer. From all the proposal where we have detected the object the object is inside it not sure where exactly so the later network take these proposal and tell where exactly are the object of interest located in the original image. In a gist, this network aim is to convolute through the image (generally in a fixed shape convolution) and tell us the region in which there is an object in simple yes or no style. This can be implemented in RCNN, Fast-RCNN and Faster-RCNN
-2. 
-We will discuss in details only the faster-RCNN 
-
-**RCNN** - post first layer RCNN feed all the proposal one by one to the classification network (SVM for k class) and BBOX regressor and hence is very slow in this step (45 second)
+**RCNN** - post first layer RCNN feed all the proposal one by one to the classification network (SVM for k class) and BBOX regressor and hence is very slow in this step (45 second)\
 **Fast-RCNN** - This saved computation by using the ROI pooling layer
 
 This is Heavily engineered method from 
@@ -55,6 +52,18 @@ The same has been proposed in the efficentDet for bi-FPN.
 
 ---
 ### RCNN
+The R-CNN consists of 3 main modules:
+
+- The first module generates 2,000 region proposals using the Selective Search algorithm.
+- After being resized to a fixed pre-defined size, the second module extracts a feature vector of length 4,096 from each region proposal.
+- The third module uses a pre-trained SVM algorithm to classify the region proposal to either the background or one of the object classes.
+
+The R-CNN model has some drawbacks:
+- It is a multi-stage model, where each stage is an independent component. Thus, it cannot be trained end-to-end.
+- It caches the extracted features from the pre-trained CNN on the disk to later train the SVMs. This requires hundreds of gigabytes of storage.
+- R-CNN depends on the Selective Search algorithm for generating region proposals, which takes a lot of time. Moreover, this algorithm cannot be customized to the detection problem.
+- Each region proposal is fed independently to the CNN for feature extraction. This makes it impossible to run R-CNN in real-time.
+
 Layer-1: very complex graph based algorithm to propose area of interest 
 ![img_1.png](../Assets/RCNN-2.png)
 Layer- 2 & 3: each proposed region one by one is feed to CNN and later to SVM to output region and class
@@ -62,6 +71,18 @@ Layer- 2 & 3: each proposed region one by one is feed to CNN and later to SVM to
 
 --- 
 ### Fast-RCNN: [source](https://www.youtube.com/watch?v=pCkxu9958bU)
+Fast R-CNN $[2]$ is an object detector that was developed solely by Ross Girshick, a Facebook AI researcher and a former Microsoft Researcher. Fast R-CNN overcomes several issues in R-CNN. As its name suggests, one advantage of the Fast R-CNN over R-CNN is its speed.
+
+Here is a summary of the main contributions in $[2]$:
+
+- Proposed a new layer called ROI Pooling that extracts equal-length feature vectors from all proposals (i.e. ROIs) in the same image.
+- Compared to R-CNN, which has multiple stages (region proposal generation, feature extraction, and classification using SVM), Faster R-CNN builds a network that has only a single stage.
+- Faster R-CNN shares computations (i.e. convolutional layer calculations) across all proposals (i.e. ROIs) rather than doing the calculations for each proposal independently. This is done by using the new ROI Pooling layer, which makes Fast R-CNN faster than R-CNN.
+- Fast R-CNN does not cache the extracted features and thus does not need so much disk storage compared to R-CNN, which needs hundreds of gigabytes.
+- Fast R-CNN is more accurate than R-CNN.
+- In R-CNN, each region proposal is fed to the model independently from the other region proposals. This means that if a single region takes S seconds to be processed, then N regions take S*N seconds. The Fast R-CNN is faster than the R-CNN as it shares computations across multiple proposals.
+- 
+
 USes the same region proposal framework but imporoves on passing all the proposal one by one.
 Rather than passing individual region, we passed the entire image to CNN for feature extraction.
 
@@ -95,6 +116,15 @@ And thats it RPN + ROI pooling layer + classification layer makes the Fast-RCNN,
 --- 
 ### Faster-RCNN: [source](https://www.youtube.com/watch?v=Qq1yfWDdj5Y)
 Why Faster-RCNN: still very slow in region proposal
+##### Main Contributions
+The main contributions in this paper are $[3]$:
+- Proposing region proposal network (RPN) which is a fully convolutional network that generates proposals with various scales and aspect ratios. The RPN implements the terminology of neural network with attention to tell the object detection (Fast R-CNN) where to look.
+- Rather than using pyramids of images (i.e. multiple instances of the image but at different scales) or pyramids of filters (i.e. multiple filters with different sizes), this paper introduced the concept of anchor boxes. An anchor box is a reference box of a specific scale and aspect ratio. With multiple reference anchor boxes, then multiple scales and aspect ratios exist for the single region. This can be thought of as a pyramid of reference anchor boxes. Each region is then mapped to each reference anchor box, and thus detecting objects at different scales and aspect ratios.
+- The convolutional computations are shared across the RPN and the Fast R-CNN. This reduces the computational time.
+
+The architecture of Faster R-CNN is shown in the next figure. It consists of 2 modules:
+- RPN: For generating region proposals.
+- Fast R-CNN: For detecting objects in the proposed regions.
 
 Till now we were using selective search proposal
 ![img.png](../Assets/fasterRCNN/img.png)
@@ -131,10 +161,26 @@ we later uses a convolution layer for these proposed regions with output for eac
 ![img_8.png](../Assets/fasterRCNN/img_8.png)
 
 in later layers some filtering is done on these proposed region which have proposal lying outside the iamges and then feed to the classification part of the model ie ROI pooling. Also Note ROI pooling also uses the same backbone CNN so it improve the accuracy
-![img.png](img.png)
+![img.png](../Assets/fasterRCNN/img_10.png)
 
 
 
 ### EfficientDet
-Uses Bi-Feature Pyramid Network based on the intution that previous layer of the CNN also stores critical information useful for the region
-![img_1.png](img_1.png)
+BackBone + Neck + head
+[GithubRepo](https://github.com/google/automl/tree/master/efficientdet), [Original Paper](https://arxiv.org/pdf/1911.09070)
+- **EffcientNet** It uses a dimension search operation to make network size optimal hence it is small and more accurate 
+- **EfficientDet** which is OD version using `EN` above introduced BiFPN, which was one more advanced version of FPN. FPN was released post FasterRCNN and showed if we replace our RPN to this it has more accuracy.  
+
+#### Understand FPN
+[FPN-Article](https://jonathan-hui.medium.com/understanding-feature-pyramid-networks-for-object-detection-fpn-45b227b9106c)
+[Very Good Video lecture](https://www.youtube.com/watch?v=FKsgO0U7CUw&list=PLivJwLo9VCUJXdO8SiOjZTWr_fXrAy4OQ&index=10)
+In a gist rather than depending on the last layer of the backbone network we take forward output of last-7 layers and feed them to our neck (FPN). Pyramid because backbone reduced size of image in further layer. The whole FPN is nothing but engineering around making the output of different layer to be of same dimension and mixing them to give output based on the informations from all layers.
+
+![img.png](../Assets/EfficientDet/img.png)
+Bi-FPN: veru beautifully said why to go only from top to bottom, lets go from bottom and top and also feed output of CNN to both the layer as shown in image below. Rest of the implementation details is just using identity block to match the dimension when doing the addition across layers.
+![img_2.png](../Assets/EfficientDet/img_2.png)
+
+
+Post Bi-FPN we have a head which produces bounding box prediction from a seprate network and class label from a seprate network with output dimension depending on the size of anchor box.
+Uses Bi-Feature Pyramid Network based on the intuition that previous layer of the CNN also stores critical information useful for the region
+![img_1.png](../Assets/EfficientDet/img_1.png)

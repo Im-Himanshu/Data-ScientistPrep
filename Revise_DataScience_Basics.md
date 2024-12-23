@@ -112,14 +112,14 @@
 12. [oversampling and under Sampling ](https://machinelearningmastery.com/random-oversampling-and-undersampling-for-imbalanced-classification/)
     >Random Oversampling: Randomly duplicate examples in the minority class.
     Random Undersampling: Randomly delete examples in the majority class.
-13. Object Detection
+13. Object Detection [Object Detection- My Notes](./DataScience-Notes/ObjectDetectionProblem&Models.md)
     1. [All Backbone Networks Explained](https://youtu.be/xxHkbWMILjI?list=PLkRLdi-c79HKEWoi4oryj-Cx-e47y_NcM&t=1288)
         1. [Resnet-AndrewNg Notes](./DeepLearning.ai-Summary-master/4-%20Convolutional%20Neural%20Networks/Readme.md#residual-networks-resnets) , [My Notes: Resent Intutions](./DataScience-Notes/Why_ResnNets_&_intutions.md)
         2. [Inception](https://youtu.be/xxHkbWMILjI?list=PLkRLdi-c79HKEWoi4oryj-Cx-e47y_NcM&t=2267)
         3. [YOlO - AndrewNG Notes](./DeepLearning.ai-Summary-master/4-%20Convolutional%20Neural%20Networks/Readme.md#object-detection-1) - YOLO is FCN 
         4. [EfficientNet - NAS (Neural archt search)](https://www.youtube.com/watch?v=GOxRSefbBoI&ab_channel=CodeWithAarohi)
         5. [EfficientDet - BiFPN](https://www.youtube.com/watch?v=OsA3zH5NKYc&ab_channel=CodeWithAarohi)
-    2. [FPN - Feature Pyrmaid Network](https://github.com/potterhsu/easy-fpn.pytorch)
+    2. [FPN - Feature Pyrmaid Network](https://jonathan-hui.medium.com/understanding-feature-pyramid-networks-for-object-detection-fpn-45b227b9106c) (video)[https://www.youtube.com/watch?v=FKsgO0U7CUw&list=PLivJwLo9VCUJXdO8SiOjZTWr_fXrAy4OQ&index=10]
        1. [Understanding them](https://www.youtube.com/watch?v=mwMopcSRx1U&ab_channel=HaoTsui)
     3. [Region Proposal Networks-RPNs](https://www.youtube.com/watch?v=if1tzf1p0gA&ab_channel=CodeWithAarohi)
     3. Faster-R-CNN - Region with CNN, how to find location of object using the CNN?

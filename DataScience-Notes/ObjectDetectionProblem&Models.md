@@ -112,6 +112,7 @@ here is exactly what we do
 We run our 3X3 convolution kernel on the image and ask if the object is present in anchor of different size and aspect ratio that is centred around the centre of the given kernel. all these prediction are saved in the output in the depth of kernel
 ![img_4.png](../Assets/fasterRCNN/img_4.png)
 
+our 1X1Xc dimensional feature is used to predict if there is an object in different aspect ratio of bounding box or not
 ![img_5.png](../Assets/fasterRCNN/img_5.png)
 
 All anchor box output is computed, so we run convolution only once but for all different type of achor boxes hence avoiding computation again. Labelling of this is again tricky because anchor which has IoU > threshold will only be considered as conatining object and IoU <thresh2 will be considered as background (negative) rest is ignored.
@@ -119,6 +120,14 @@ All anchor box output is computed, so we run convolution only once but for all d
 The assumption here is we can use a small part of the object to tell if there is a object in the proposed region or not, and anyway we only need a decent guess and later we will exactly figure out where is the object.
 ![img_7.png](../Assets/fasterRCNN/img_7.png)
 
-we later uses a convolution layer for these proposed regions with output for each anchor boxes. we have 9 anchor boxes for each location so output is huge and training and labelling has to be handled by the code.
+we later uses a convolution layer for these proposed regions with output for each anchor boxes. we have 9 anchor boxes for each location so output is huge and training and labelling has to be handled by the code. 2k for k anchor box, one for object and second for background, though one would have worked. 4k in bounding box 4 for each anchor box.
 ![img_8.png](../Assets/fasterRCNN/img_8.png)
 
+in later layers some filtering is done on these proposed region which have proposal lying outside the iamges and then feed to the classification part of the model ie ROI pooling. Also Note ROI pooling also uses the same backbone CNN so it improve the accuracy
+![img.png](img.png)
+
+
+
+### EfficientDet
+Uses Bi-Feature Pyramid Network based on the intution that previous layer of the CNN also stores critical information useful for the region
+![img_1.png](img_1.png)

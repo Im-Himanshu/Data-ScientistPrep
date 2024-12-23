@@ -116,7 +116,7 @@
     1. [All Backbone Networks Explained](https://youtu.be/xxHkbWMILjI?list=PLkRLdi-c79HKEWoi4oryj-Cx-e47y_NcM&t=1288)
         1. [Resnet-AndrewNg Notes](./DeepLearning.ai-Summary-master/4-%20Convolutional%20Neural%20Networks/Readme.md#residual-networks-resnets) , [My Notes: Resent Intutions](./DataScience-Notes/Why_ResnNets_&_intutions.md)
         2. [Inception](https://youtu.be/xxHkbWMILjI?list=PLkRLdi-c79HKEWoi4oryj-Cx-e47y_NcM&t=2267)
-        3. [YOlO]()
+        3. [YOlO - AndrewNG Notes](./DeepLearning.ai-Summary-master/4-%20Convolutional%20Neural%20Networks/Readme.md#object-detection-1) - YOLO is FCN 
         4. [EfficientNet - NAS (Neural archt search)](https://www.youtube.com/watch?v=GOxRSefbBoI&ab_channel=CodeWithAarohi)
         5. [EfficientDet - BiFPN](https://www.youtube.com/watch?v=OsA3zH5NKYc&ab_channel=CodeWithAarohi)
     2. [FPN - Feature Pyrmaid Network](https://github.com/potterhsu/easy-fpn.pytorch)

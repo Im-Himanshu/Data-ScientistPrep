@@ -495,9 +495,9 @@ Here is the course summary as given on the course [link](https://www.coursera.or
     - The conv can be bottleneck 1 x 1 conv
 
 ### Network in Network and 1 X 1 convolutions
-
 - A 1 x 1 convolution  - We also call it Network in Network- is so useful in many CNN models.
-
+- In Resent it is used to match dimension from residual block to the output layer because sometimes it may not be same, as shown in resent Arch below. going from 128 channel to 256 become feasible.
+- In inception its aim is to reduce number of computations, refer Andrew Notes for this.
 - What does a 1 X 1 convolution do? Isn't it just multiplying by a number?
 
   - Lets first consider an example:

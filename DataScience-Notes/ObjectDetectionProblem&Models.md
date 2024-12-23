@@ -1,6 +1,13 @@
 
-
-
+# Table of Contents
+1. [YOLOX](#YOLOX)
+2. [R-CNN, Fast-RCNN, Faster RCNN](#r-cnn-fast-rcnn-faster-rcnn)
+   1. [rcnn](#rcnn)
+   2. (fast-rcnn)[##fast-rcnn-source]
+   2. [rcnn](#faster-rcnn-source)
+3. [EfficientDet](#efficientdet)
+   4. [FPN and BiFPNs](#understand-fpn)
+--- 
 # YOLOX
 [Source-1](https://blog.paperspace.com/how-to-implement-a-yolo-object-detector-in-pytorch/) [source-2](https://www.datacamp.com/blog/yolo-object-detection-explained?utm_source=google&utm_medium=paid_search&utm_campaignid=19589720830&utm_adgroupid=152984015734&utm_device=c&utm_keyword=&utm_matchtype=&utm_network=g&utm_adpostion=&utm_creative=724847714833&utm_targetid=aud-1685385913382:dsa-2222697811358&utm_loc_interest_ms=&utm_loc_physical_ms=9197829&utm_content=DSA~blog~Data-Science&utm_campaign=230119_1-sea~dsa~tofu_2-b2c_3-us_4-prc_5-na_6-na_7-le_8-pdsh-go_9-nb-e_10-na_11-na-dec24&gad_source=1&gclid=CjwKCAiAjp-7BhBZEiwAmh9rBXffQ738y7053wLqw3z1H2dPpelwheSQk2R7-YQ060P4GN_dVLbz6xoCqD0QAvD_BwE)\
 Building over and above [YOlO - AndrewNG Notes](./DeepLearning.ai-Summary-master/4-%20Convolutional%20Neural%20Networks/Readme.md#object-detection-1)
@@ -51,7 +58,7 @@ The same has been proposed in the efficentDet for bi-FPN.
 ![img.png](../Assets/fasterRCNN_arch.png)
 
 ---
-### RCNN
+## RCNN
 The R-CNN consists of 3 main modules:
 
 - The first module generates 2,000 region proposals using the Selective Search algorithm.
@@ -70,7 +77,7 @@ Layer- 2 & 3: each proposed region one by one is feed to CNN and later to SVM to
 ![img.png](../Assets/RCNN-1.png)
 
 --- 
-### Fast-RCNN: [source](https://www.youtube.com/watch?v=pCkxu9958bU)
+#Fast-RCNN: [source](https://www.youtube.com/watch?v=pCkxu9958bU)
 Fast R-CNN $[2]$ is an object detector that was developed solely by Ross Girshick, a Facebook AI researcher and a former Microsoft Researcher. Fast R-CNN overcomes several issues in R-CNN. As its name suggests, one advantage of the Fast R-CNN over R-CNN is its speed.
 
 Here is a summary of the main contributions in $[2]$:
@@ -114,7 +121,7 @@ Which alter were feed to classifier individually i.e one by one
 And thats it RPN + ROI pooling layer + classification layer makes the Fast-RCNN, the difference being pooling layers and feature Extraction layer allows to feed iamge only once
 
 --- 
-### Faster-RCNN: [source](https://www.youtube.com/watch?v=Qq1yfWDdj5Y)
+## Faster-RCNN: [source](https://www.youtube.com/watch?v=Qq1yfWDdj5Y)
 Why Faster-RCNN: still very slow in region proposal
 ##### Main Contributions
 The main contributions in this paper are $[3]$:
@@ -164,14 +171,16 @@ in later layers some filtering is done on these proposed region which have propo
 ![img.png](../Assets/fasterRCNN/img_10.png)
 
 
+---
+---
 
-### EfficientDet
+# EfficientDet
 BackBone + Neck + head
 [GithubRepo](https://github.com/google/automl/tree/master/efficientdet), [Original Paper](https://arxiv.org/pdf/1911.09070)
 - **EffcientNet** It uses a dimension search operation to make network size optimal hence it is small and more accurate 
 - **EfficientDet** which is OD version using `EN` above introduced BiFPN, which was one more advanced version of FPN. FPN was released post FasterRCNN and showed if we replace our RPN to this it has more accuracy.  
 
-#### Understand FPN
+## Understand FPN
 [FPN-Article](https://jonathan-hui.medium.com/understanding-feature-pyramid-networks-for-object-detection-fpn-45b227b9106c)
 [Very Good Video lecture](https://www.youtube.com/watch?v=FKsgO0U7CUw&list=PLivJwLo9VCUJXdO8SiOjZTWr_fXrAy4OQ&index=10)
 In a gist rather than depending on the last layer of the backbone network we take forward output of last-7 layers and feed them to our neck (FPN). Pyramid because backbone reduced size of image in further layer. The whole FPN is nothing but engineering around making the output of different layer to be of same dimension and mixing them to give output based on the informations from all layers.

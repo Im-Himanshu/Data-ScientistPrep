@@ -22,6 +22,7 @@ And that's it, that's yolo for you. using
 
 in NMS we are removing same object detected which is not max.
 Later in post-processing we have to perform NMS and IoU filtering which is drawback.
+---
 
 # R-CNN, Fast-RCNN, Faster RCNN
 Note: R here stands for Region proposal CNN and not `recurrent`
@@ -40,7 +41,8 @@ This is Heavily engineered method from
 - ROI pooling layer - in itself a separate paper :/
 - FC layer for classification and object location
 [Faster-RCNN Paper](https://arxiv.org/pdf/1506.01497v3) [RCNN](https://www.youtube.com/watch?v=5DvljLV4S1E)
-[Salute to this video Level Explanations] (https://www.youtube.com/watch?v=itjQT-gFQBY)
+
+- [Salute to this video Level Explanations](https://www.youtube.com/watch?v=itjQT-gFQBY)
 Introduced RPN Region proposal network, FPN - Feature Pyramid Network
 These all belong to the same family of model, using the same Res-net Backbone for classification but implemented different strategy for object detection problem
 
@@ -51,15 +53,16 @@ The same has been proposed in the efficentDet for bi-FPN.
 
 ![img.png](../Assets/fasterRCNN_arch.png)
 
-
+---
 ### RCNN
-Layer-1 
+Layer-1: very complex graph based algorithm to propose area of interest 
 ![img_1.png](../Assets/RCNN-2.png)
-Layer- 2 & 3
+Layer- 2 & 3: each proposed region one by one is feed to CNN and later to SVM to output region and class
 ![img.png](../Assets/RCNN-1.png)
 
+--- 
 ### Fast-RCNN: [source](https://www.youtube.com/watch?v=pCkxu9958bU)
-
+USes the same region proposal framework but imporoves on passing all the proposal one by one.
 Rather than passing individual region, we passed the entire image to CNN for feature extraction.
 
 ![img.png](../Assets/fastRCNN/fastRCNN-1.png)
@@ -68,7 +71,7 @@ From the entire feature of whole image, figure out the feature corresponding to 
 Require boundary case handling but this is it in a gist
 ![img_1.png](../Assets/fastRCNN/fastRCNN-2.png)
 
-Finally take the feature map and flatten them (ROI pooling comes here) and feed them to classification and bbox regressor. Here we note that regressor has to be run on all proposed boxes again and again, which we cannot avoid.
+Finally take the feature map (just pick up the region from output after processing whole image ) of all the proposed region one by one and flatten them (ROI pooling comes here) and feed them to classification and bbox regressor. Here we note that regressor has to be run on all proposed boxes again and again, which we cannot avoid.
 ![img_2.png](../Assets/fastRCNN/fastRCNN-3.png)
 
 not exactly possible because FC layer require fixed input size
@@ -89,6 +92,7 @@ Which alter were feed to classifier individually i.e one by one
 
 And thats it RPN + ROI pooling layer + classification layer makes the Fast-RCNN, the difference being pooling layers and feature Extraction layer allows to feed iamge only once
 
+--- 
 ### Faster-RCNN: [source](https://www.youtube.com/watch?v=Qq1yfWDdj5Y)
 Why Faster-RCNN: still very slow in region proposal
 
@@ -102,14 +106,17 @@ In faster-RCNN we train a separate network for region proposal (trivially also c
 Region Proposal Network:
 
 This is a difficult task because size of proposal can be different, aspect ratio can be different and proposing all the combination of above is computationally expensive
+
 ![img_2.png](../Assets/fasterRCNN/img_2.png)
 
 Instead we pass the whole image to CNN and take the feature map output (of reduced size) and run our sliding window (with different aspect ratios as defined by anchors) region proposal on this.
+
 ![img_3.png](../Assets/fasterRCNN/img_3.png)
 
 
 here is exactly what we do
 We run our 3X3 convolution kernel on the image and ask if the object is present in anchor of different size and aspect ratio that is centred around the centre of the given kernel. all these prediction are saved in the output in the depth of kernel
+
 ![img_4.png](../Assets/fasterRCNN/img_4.png)
 
 our 1X1Xc dimensional feature is used to predict if there is an object in different aspect ratio of bounding box or not

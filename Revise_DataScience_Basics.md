@@ -83,7 +83,7 @@
     4. Data Augementation
     5. Early Stopping
 
-6. [Optimization deeplearning.ai](https://github.com/mbadry1/DeepLearning.ai-Summary/tree/master/2-%20Improving%20Deep%20Neural%20Networks#optimization-algorithms) :
+6. [self-notes](./DataScience-Notes/Regularizer%20and%20Optimizers.md), [Regularization](https://github.com/mbadry1/DeepLearning.ai-Summary/tree/master/2-%20Improving%20Deep%20Neural%20Networks#regularization), [Optimization deeplearning.ai](https://github.com/mbadry1/DeepLearning.ai-Summary/tree/master/2-%20Improving%20Deep%20Neural%20Networks#optimization-algorithms) :
     1. [Momentum based](https://github.com/mbadry1/DeepLearning.ai-Summary/tree/master/2-%20Improving%20Deep%20Neural%20Networks#gradient-descent-with-momentum) : Exponential Moving average of DW and db term to stop them moving randomly 
     3. [RMS Prop (root mean square) ](https://github.com/mbadry1/DeepLearning.ai-Summary/tree/master/2-%20Improving%20Deep%20Neural%20Networks#rmsprop) : divide alpha with Sdw and Sdb and assume Sdb > Sdw so b will move in optimize manner
     4. [ADAM](https://github.com/mbadry1/DeepLearning.ai-Summary/tree/master/2-%20Improving%20Deep%20Neural%20Networks#adam-optimization-algorithm) : combinaion of Momentum and RMS prop
@@ -119,7 +119,7 @@
         3. [YOlO - AndrewNG Notes](./DeepLearning.ai-Summary-master/4-%20Convolutional%20Neural%20Networks/Readme.md#object-detection-1) - YOLO is FCN 
         4. [EfficientNet - NAS (Neural archt search)](https://www.youtube.com/watch?v=GOxRSefbBoI&ab_channel=CodeWithAarohi)
         5. [EfficientDet - BiFPN](https://www.youtube.com/watch?v=OsA3zH5NKYc&ab_channel=CodeWithAarohi)
-    2. [FPN - Feature Pyrmaid Network](https://jonathan-hui.medium.com/understanding-feature-pyramid-networks-for-object-detection-fpn-45b227b9106c) (video)[https://www.youtube.com/watch?v=FKsgO0U7CUw&list=PLivJwLo9VCUJXdO8SiOjZTWr_fXrAy4OQ&index=10]
+    2. [FPN - Feature Pyrmaid Network](https://jonathan-hui.medium.com/understanding-feature-pyramid-networks-for-object-detection-fpn-45b227b9106c) [video](https://www.youtube.com/watch?v=FKsgO0U7CUw&list=PLivJwLo9VCUJXdO8SiOjZTWr_fXrAy4OQ&index=10)
        1. [Understanding them](https://www.youtube.com/watch?v=mwMopcSRx1U&ab_channel=HaoTsui)
     3. [Region Proposal Networks-RPNs](https://www.youtube.com/watch?v=if1tzf1p0gA&ab_channel=CodeWithAarohi)
     3. Faster-R-CNN - Region with CNN, how to find location of object using the CNN?

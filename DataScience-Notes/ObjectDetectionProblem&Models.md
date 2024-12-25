@@ -3,13 +3,14 @@
 1. [YOLOX](#YOLOX)
 2. [R-CNN, Fast-RCNN, Faster RCNN](#r-cnn-fast-rcnn-faster-rcnn)
    1. [rcnn](#rcnn)
-   2. (fast-rcnn)[##fast-rcnn-source]
+   2. (fast-rcnn)[#fast-rcnn-source]
    2. [rcnn](#faster-rcnn-source)
 3. [EfficientDet](#efficientdet)
-   4. [FPN and BiFPNs](#understand-fpn)
+   1. [FPN and BiFPNs](#understand-fpn)
 --- 
 # YOLOX
-[Source-1](https://blog.paperspace.com/how-to-implement-a-yolo-object-detector-in-pytorch/) [source-2](https://www.datacamp.com/blog/yolo-object-detection-explained?utm_source=google&utm_medium=paid_search&utm_campaignid=19589720830&utm_adgroupid=152984015734&utm_device=c&utm_keyword=&utm_matchtype=&utm_network=g&utm_adpostion=&utm_creative=724847714833&utm_targetid=aud-1685385913382:dsa-2222697811358&utm_loc_interest_ms=&utm_loc_physical_ms=9197829&utm_content=DSA~blog~Data-Science&utm_campaign=230119_1-sea~dsa~tofu_2-b2c_3-us_4-prc_5-na_6-na_7-le_8-pdsh-go_9-nb-e_10-na_11-na-dec24&gad_source=1&gclid=CjwKCAiAjp-7BhBZEiwAmh9rBXffQ738y7053wLqw3z1H2dPpelwheSQk2R7-YQ060P4GN_dVLbz6xoCqD0QAvD_BwE)\
+YoloV1-11 is generally from ultralytics but yolox is a considerable depart from yolo family and developed by Meglev \
+[Detailed Model Arch of Yolos](https://github.com/open-mmlab/mmyolo/tree/main/configs/yolov8), [Source-1](https://blog.paperspace.com/how-to-implement-a-yolo-object-detector-in-pytorch/), [source-2](https://www.datacamp.com/blog/yolo-object-detection-explained?utm_source=google&utm_medium=paid_search&utm_campaignid=19589720830&utm_adgroupid=152984015734&utm_device=c&utm_keyword=&utm_matchtype=&utm_network=g&utm_adpostion=&utm_creative=724847714833&utm_targetid=aud-1685385913382:dsa-2222697811358&utm_loc_interest_ms=&utm_loc_physical_ms=9197829&utm_content=DSA~blog~Data-Science&utm_campaign=230119_1-sea~dsa~tofu_2-b2c_3-us_4-prc_5-na_6-na_7-le_8-pdsh-go_9-nb-e_10-na_11-na-dec24&gad_source=1&gclid=CjwKCAiAjp-7BhBZEiwAmh9rBXffQ738y7053wLqw3z1H2dPpelwheSQk2R7-YQ060P4GN_dVLbz6xoCqD0QAvD_BwE)\
 Building over and above [YOlO - AndrewNG Notes](./DeepLearning.ai-Summary-master/4-%20Convolutional%20Neural%20Networks/Readme.md#object-detection-1)
 
 Yolox is Fully convolution network (FCN) no FC (fully connected) layer hence it is very fast. It utilized identity-convolution to flatten the last layer output.
@@ -29,6 +30,67 @@ And that's it, that's yolo for you. using
 
 in NMS we are removing same object detected which is not max.
 Later in post-processing we have to perform NMS and IoU filtering which is drawback.
+
+The YOLO (You Only Look Once) series of object detection models was proposed in the following order:
+
+1. **YOLO (v1)** - **2016**  
+   - Introduced by Joseph Redmon et al. in the paper *"You Only Look Once: Unified, Real-Time Object Detection."*  
+   - A single neural network predicts bounding boxes and class probabilities directly from the entire image.
+
+2. **YOLOv2 (YOLO9000)** - **2017**  
+   - Introduced in the paper *"YOLO9000: Better, Faster, Stronger."*  
+   - Improved accuracy and introduced techniques like Batch Normalization, dimension priors, and multi-scale training.
+
+3. **YOLOv3** - **2018**  
+   - Presented in *"YOLOv3: An Incremental Improvement."*  
+   - Added features like a multi-scale feature pyramid network and better classification.
+
+4. **YOLOv4** - **2020**  
+   - Proposed by Alexey Bochkovskiy et al.  
+   - Improved performance with additional techniques like CSPNet, Bag of Freebies, and Bag of Specials.
+
+5. **YOLOv5** - **2020**  
+   - Not an official version from the original authors but developed by Ultralytics.  
+   - Widely adopted in the industry due to ease of use, flexibility, and active support.
+
+6. **YOLOv6** - **2022**  
+   - Developed by Meituan for industrial applications. Focused on efficiency and real-time capabilities.
+
+7. **YOLOv7** - **2022**  
+   - Claimed by Chien-Yao Wang et al. as the most efficient YOLO model for real-time object detection. Introduced Extended Efficient Layer Aggregation Networks (E-ELAN).
+
+8. **YOLOv8** - **2023**  
+   - Released by Ultralytics, combining insights from YOLOv5 and YOLOv7. Focused on usability and performance.
+
+Each version built on the strengths of its predecessors while introducing novel techniques and optimizations for better accuracy, speed, and usability.
+
+**YOLOX** is another extension of the YOLO family, introduced in **2021** by **Megvii Technology**. It brought several improvements to the YOLO architecture, focusing on modernizing the framework for better performance and usability in object detection tasks.
+
+### Key Features of YOLOX:
+1. **Anchor-Free Design**:
+   - YOLOX departs from the traditional anchor-based approach used in earlier YOLO versions (YOLOv3/v4/v5).
+   - It adopts an anchor-free approach, simplifying the model and reducing computational overhead.
+
+2. **Decoupled Head**:
+   - YOLOX uses a decoupled head for classification and regression tasks.
+   - This separates the optimization of object classification and bounding box regression, leading to better performance.
+
+3. **Advanced Data Augmentation**:
+   - Incorporates advanced augmentation techniques like **MixUp** and **Mosaic**, which are highly effective for improving generalization.
+
+4. **SimOTA for Label Assignment**:
+   - Uses SimOTA (Optimal Transport Assignment) for dynamic label assignment, which improves the matching process between predicted boxes and ground truth during training.
+
+5. **State-of-the-Art Performance**:
+   - YOLOX achieves superior performance on benchmarks like COCO, with better accuracy and comparable inference speed to YOLOv5 and YOLOv4.
+
+### Comparison with Other YOLO Versions:
+- **Modern Design**: YOLOX is closer to state-of-the-art models like FCOS and ATSS due to its anchor-free nature and dynamic label assignment.
+- **Improved Accuracy**: It provides better mean Average Precision (mAP) compared to earlier YOLO models.
+- **Real-Time Capabilities**: Maintains a balance between speed and accuracy, making it suitable for real-time applications.
+
+### Impact:
+YOLOX modernized the YOLO framework by introducing techniques commonly found in newer object detection models while maintaining the simplicity and speed that YOLO is known for. It is widely used in applications requiring high accuracy and real-time performance.
 ---
 
 # R-CNN, Fast-RCNN, Faster RCNN
@@ -169,6 +231,9 @@ we later uses a convolution layer for these proposed regions with output for eac
 
 in later layers some filtering is done on these proposed region which have proposal lying outside the iamges and then feed to the classification part of the model ie ROI pooling. Also Note ROI pooling also uses the same backbone CNN so it improve the accuracy
 ![img.png](../Assets/fasterRCNN/img_10.png)
+
+
+# MaskRCNN Model
 
 
 ---

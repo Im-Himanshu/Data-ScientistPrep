@@ -114,7 +114,7 @@ This formatting will ensure that all mathematical expressions are properly enclo
 
 ---
 
-![Optimi](../Assets/optimizer_compared.gif)
+<img alt="Optimi" src="../Assets/optimizer_compared.gif"/>
 
 Both regularization and optimizers work together to ensure the model is efficient, robust, and generalizes well to unseen data.
 

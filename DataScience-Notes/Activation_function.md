@@ -1,6 +1,8 @@
-Here's a more readable and visually appealing version of your markdown text:
+# Introduction
+
 History says for the large amount of time people were using the sigmoid activation function
 Relu was there for a long time but paper in 2009 and 2011 outperformed in their category (AlexNet) due to improved deepmodel training.
+
 ![img_2.png](../Assets/img_2.png)
 ---
 

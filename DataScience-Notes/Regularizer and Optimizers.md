@@ -61,12 +61,15 @@ w_{t+1} = w_t - \eta v_t
 ```
 
 3. **RMSProp (Root Mean Square Propagation)**:
-The proposition is to change the learning rate (alpha) in proportion to the magnitude of the gradient, i.e., the learning rate will be faster (also exponentially smoothened) for a large gradient.  
-Generally, we expect weights to be higher in the early stage, so the learning rate will be higher, and as the model gets trained, alpha reduces to a minimum, making training stable till the end and enabling it to reach the global minima.  
-Scales the learning rate by the moving average of squared gradients:   
+- This is about Adapting learning rate as per the magnitude of that weight. The proposition is to change the learning rate (alpha) in proportion to the magnitude of the gradient, i.e., the learning rate will be faster (also exponentially smoothened) for a large gradient.  
+- - Generally, we expect weights to be higher in the early stage, so the learning rate will be higher, and as the model gets trained, alpha reduces to a minimum, making training stable till the end and enabling it to reach the global minima. From experimentation, we Know that dB is much larger than dW, and we need to control model moment in vertical direction but still keep its momentum in horizontal direction
+- RMSprop allows us to do exactly, it dampens the model movement in vertical direction and keep moving in horizontal direction
+- Please Note: the aim of this is widely different then of the ADAgrad which keep dampening the model movement as it progress the iteration no matter what.
+- Scales the learning rate by the moving average of squared gradients:   
 ```math
 w_{t+1} = w_t - \frac{\eta}{\sqrt{E[g^2]_t + \epsilon}} \cdot \nabla_w Loss
 ```
+![img_1.png](RMS_prop.png)
 
 4. **Adam (Adaptive Moment Estimation)**:  
    Combines momentum and RMSProp for adaptive learning rates:  
@@ -86,6 +89,8 @@ w_{t+1} = w_t - \frac{\eta \cdot m_t}{\sqrt{v_t} + \epsilon}
   
 
 5. **Adagrad (Adaptive Gradient Algorithm)**  
+
+This is widely different from above-mentioned which are kind of better of one another this one is on a tangent and has a completely different ai m of reducing the learning rate as the training progress.
 Adagrad adjusts the learning rate for each parameter based on the cumulative sum of squared gradients:  
 ```math
 w_{t+1} = w_t - \frac{\eta}{\sqrt{G_t + \epsilon}} \cdot g_t
@@ -108,6 +113,8 @@ This formatting will ensure that all mathematical expressions are properly enclo
   - The **cumulative sum** of squared gradients causes the learning rate to shrink indefinitely, leading to premature convergence.
 
 ---
+
+![Optimi](../Assets/optimizer_compared.gif)
 
 Both regularization and optimizers work together to ensure the model is efficient, robust, and generalizes well to unseen data.
 

@@ -18,7 +18,7 @@ Below is a summary of some popular activation functions used in neural networks,
 |---------------------|-------------------------------------|--------------------------------------------------------------|
 | **Sigmoid**          | $\frac{1}{1 + e^{-x}}$              | $\sigma(x)(1 - \sigma(x))$                                   |
 | **tanh**             | $\frac{e^x - e^{-x}}{e^x + e^{-x}}$ | $1 - \text{tanh}^2(x)$                                       |
-| **ReLU**             | $\max(0, x)$                                  | $\( 1 \) if \( x > 0 \), else \( 0 \)$                                                           |
+| **ReLU**             | $\max(0, x)$                                  | $ 1  if \( x > 0 \), else 0 $                                |
 | **Leaky ReLU**       | \( \alpha x \) if \( x \leq 0 \)    | \( 1 \) if \( x > 0 \), else \( \alpha \)                    |
 | **Softmax**          | Converts logits to probabilities    | \( \text{Softmax}(z_i)(\delta_{ij} - \text{Softmax}(z_j)) \) |
 

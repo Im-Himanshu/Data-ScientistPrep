@@ -112,11 +112,11 @@ This formatting will ensure that all mathematical expressions are properly enclo
   **Weaknesses**  
   - The **cumulative sum** of squared gradients causes the learning rate to shrink indefinitely, leading to premature convergence.
 
----
 
 <img alt="Optimi" src="../Assets/optimizer_compared.gif"/>
 
 Both regularization and optimizers work together to ensure the model is efficient, robust, and generalizes well to unseen data.
+---
 
 
 
@@ -231,3 +231,32 @@ While ReLU introduces sharp kinks for non-linearity, it may reduce the non-linea
 ### Impact:
 - **L1 Regularization**: Encourages sparsity in the weight matrix, resulting in many weights being exactly zero.  
 - **L2 Regularization**: Reduces the magnitude of weights but does not necessarily lead to sparsity.
+
+Here's the updated table using icons to represent **Exploding Gradient (💥)** and **Vanishing Gradient (🌑):**
+
+---
+
+### Measures to Address Gradient Problems
+### Key:
+- **💥**: Exploding Gradient  
+- **🌑**: Vanishing Gradient  
+
+| **Measure**                  | **Description**                                                                                     | **Effective For**               | **Notes**                                                                                     |
+|-------------------------------|-----------------------------------------------------------------------------------------------------|----------------------------------|-----------------------------------------------------------------------------------------------|
+| **Gradient Clipping**         | Caps gradients to a maximum threshold during backpropagation.                                       | 💥                              | Prevents instability in training by rescaling large gradients.                                |
+| **Weight Initialization**     | Properly initializes weights using techniques like Xavier or He initialization.                    | 💥 🌑                           | Keeps gradients in a manageable range during forward and backward passes.                     |
+| **Activation Functions**      | Use ReLU, Leaky ReLU, or ELU to maintain non-zero gradients.                                         | 🌑                              | Avoid sigmoid/tanh unless combined with normalization or other measures.                      |
+| **Batch Normalization**       | Normalizes activations between layers to reduce internal covariate shift.                          | 💥 🌑                           | Helps maintain stable gradients and improves convergence.                                      |
+| **Learning Rate Adjustment**  | Reduce the learning rate or use a schedule to control parameter updates.                           | 💥                              | A smaller learning rate can prevent gradients from overshooting optimal values.                |
+| **Adaptive Optimizers**       | Optimizers like Adam, RMSprop, and AdaGrad adjust learning rates dynamically.                      | 💥 🌑                           | Helps handle gradient instability by scaling updates effectively.                              |
+| **Residual Networks (ResNet)**| Add skip connections to allow gradients to flow directly through layers.                           | 🌑                              | Simplifies gradient propagation, especially in very deep networks.                             |
+| **Regularization**            | Use L1 or L2 regularization to limit weight magnitudes.                                            | 💥                              | Reduces overfitting and indirectly controls gradient size.                                     |
+| **Intermediate Supervision**  | Add auxiliary loss functions at intermediate layers.                                               | 🌑                              | Provides additional gradient signals to earlier layers.                                        |
+| **Truncated Backpropagation** | Limit backpropagation through time to a fixed number of steps.                                     | 💥 (RNNs)                       | Used for sequence models to prevent gradient amplification over long sequences.                |
+| **Gradient Noise Addition**   | Add noise to gradients during training to stabilize updates.                                       | 💥                              | Reduces extreme fluctuations in gradients for smoother updates.                                |
+
+---
+
+
+
+This table visually distinguishes the measures and their applicability for ease of understanding.

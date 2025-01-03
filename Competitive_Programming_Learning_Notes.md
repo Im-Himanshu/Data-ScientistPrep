@@ -39,6 +39,11 @@ In this I am discussing soft skills and tricks that I have learned in my experie
    - Linked lists can be tricky to debug; even a single logical error can cause issues.
    - Example: The above linked list merge sorting took 15 minutes to implement and 30 minutes to debug.
 
+5. **Detecting Cycles**
+   - Use slow pointer (step=1) and fast pointer (step=2) and if they meet somepoint there is a cycle.
+   - Argument is their relative speed is = 1 and let say cycle size is k, they must be at same location after atmost k-step after entering cycle.
+   - If fast pointer reach Null before that means no cycle
+
 ---
 
 ### Sorting Algorithms

@@ -1,6 +1,6 @@
 # Basics 
 Cover till LSTM and RNN from the Andrew notes, and read the Alammar blog for word2vec and how to train it.
-- [AndrewNG course-5](https://github.com/Im-Himanshu/Data-ScientistPrep/tree/master/DeepLearning.ai-Summary-master/5-%20Sequence%20Models)
+- [AndrewNG course-5](../DeepLearning.ai-Summary-master/5-%20Sequence%20Models)
 - [RNN]() 
 - [LSTM](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 - [Word2Vec How to Train - Jay Alammar](https://jalammar.github.io/illustrated-word2vec/)

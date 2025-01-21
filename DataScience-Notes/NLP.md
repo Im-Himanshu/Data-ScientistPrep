@@ -5,9 +5,15 @@ Cover till LSTM and RNN from the Andrew notes, and read the Alammar blog for wor
 - [LSTM](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 - [Word2Vec: How to Train - Jay Alammar](https://jalammar.github.io/illustrated-word2vec/), Read Glove and bagOfwords, skipgram both 
 
+
+# Data Preparations
+
+- [Tokenizers](https://huggingface.co/docs/transformers/en/tokenizer_summary)
+- [Sentence Embedding Models]()
+
 # Transformers
 1. [Seq2Seq model with attentions](https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/)
-2. [Transformers](https://jalammar.github.io/illustrated-transformer/) 
+2. [Transformers](https://jalammar.github.io/illustrated-transformer/), [video](https://www.youtube.com/watch?v=ISNdQcPhsts&ab_channel=UmarJamil)
 
 Transformers with Attention is all you need understanding.
 

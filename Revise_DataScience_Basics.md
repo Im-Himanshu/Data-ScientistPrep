@@ -13,6 +13,7 @@
 4. [Same list of topic ensembled](https://towardsdatascience.com/how-id-learn-data-science-if-i-could-start-over-2-years-in-b821d8a4876c)
 5. [master doc](https://docs.google.com/document/d/1wvtcwc8LOb3PZI9huQOD7UjqUoY98N5r3aQsWKNAlzk/edit)
 6. [ML Compiled](https://ml-compiled.readthedocs.io/en/latest/index.html)
+7. [Local File](./DataScience-Notes/Deep%20Learning%20Questions%20&%20Answers%20for%20Data%20Scientists.md)[QA for DataScience - github Repo](https://github.com/youssefHosni/Data-Science-Interview-Questions-Answers/blob/main/Deep%20Learning%20Questions%20%26%20Answers%20for%20Data%20Scientists.md)
 
 # All Machine Learning Algorithms :
 
@@ -144,7 +145,7 @@
 
 
 # Important Concept 
-1. [A/B Testing 1 ](https://towardsdatascience.com/data-science-you-need-to-know-a-b-testing) and [2](https://medium.com/capital-one-tech/the-role-of-a-b-testing-in-the-machine-learning-future-3d2ba035daeb)
+1. [My Notes A/B Tesing](./DataScience-Notes/ABTesting.md)[A/B Testing 1 ](https://michael-bar.github.io/Introduction-to-statistics/AMP-2-RCT-principles.html) and [2](https://medium.com/capital-one-tech/the-role-of-a-b-testing-in-the-machine-learning-future-3d2ba035daeb)
     > Type I error is committed when the null hypothesis is true and we reject it, 
     also known as a ‘False Positive’. Type II error is committed when the null
     hypothesis is false and we accept it, also known as ‘False Negative’

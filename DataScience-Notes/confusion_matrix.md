@@ -21,6 +21,16 @@ Sure! Here's a breakdown of the metrics and their definitions in terms of True P
 ---
 
 ### **Definitions:**
+| Metric                          | Formula                                                                                     | Description                                                                                       |
+|---------------------------------|---------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| **Precision (Positive Predictive Value)** | $`\text{Precision} = \frac{TP}{TP + FP}`$                                                  | Measures the proportion of positive predictions that are actually correct.                       |
+| **Recall (True Positive Rate, Sensitivity)** | $`\text{Recall} = \frac{TP}{TP + FN}`$                                                    | Measures the proportion of actual positives that are correctly identified.                       |
+| **False Positive Rate (FPR)**   | $`FPR = \frac{FP}{FP + TN}`$                                                               | Measures the proportion of negatives incorrectly classified as positives.                        |
+| **Specificity (True Negative Rate)** | $`\text{Specificity} = \frac{TN}{TN + FP}`$                                              | Measures the proportion of actual negatives correctly classified.                                |
+| **Accuracy**                    | $`\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}`$                                     | Measures the overall correctness of predictions.                                                 |
+| **F1-Score**                    | $`F1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}`$ | Harmonic mean of Precision and Recall.                                                           |
+| **Balanced Accuracy**           | $`\text{Balanced Accuracy} = \frac{\text{TPR} + \text{Specificity}}{2}`$                   | Average of True Positive Rate (TPR) and Specificity.                                             |
+
 
 1. **Precision (Positive Predictive Value)**:  
    
@@ -34,12 +44,6 @@ Sure! Here's a breakdown of the metrics and their definitions in terms of True P
    \text{Recall} = \frac{TP}{TP + FN}
    ```  
    - Measures the proportion of actual positives that are correctly identified.
-
-3. **True Positive Rate (TPR):**  
-   ```math 
-    TPR = \frac{TP}{TP + FN}
-   ```  
-   - Synonym for Recall or Sensitivity.
 
 4. **False Positive Rate (FPR):**  
    ```math

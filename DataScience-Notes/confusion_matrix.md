@@ -14,6 +14,9 @@ A simple binary classification confusion matrix looks like this:
 
 Specificty is equilvalent to Recall on negative class \
 FPR = (1- Specificity) - used on ROC curve x-axis
+ROC curve is drawn b/w Recall(y-axis) and FPR (x-axis)
+
+Precision-recall Curve is drawn b/w (precision (y-axis)) and recall (x-axis).
 
 ![img_1.png](img_1.png)
 ---

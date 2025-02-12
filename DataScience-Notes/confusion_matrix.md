@@ -9,8 +9,11 @@ A simple binary classification confusion matrix looks like this:
 | Predicted \ Actual     | **Actual Positive**                 | **Actual Negative**              | Matrics                                |
 |------------------------|-------------------------------------|----------------------------------|----------------------------------------|
 | **Predicted Positive** | True Positive (TP)                  | False Positive (FP)              | **Precision** = $`\frac{TP}{TP + FP}`$ |
-| **Predicted Negative** | False Negative (FN)                 | True Negative (TN)               | **TPR**=   $`\frac{TP}{TP + FN}`$      |
-| Matrics                | **Recall** = $`\frac{TP}{TP + FN}`$ | **Specificty** = $`\frac{TN}{TN + FP}`$ |                                        |
+| **Predicted Negative** | False Negative (FN)                 | True Negative (TN)               | Nothing     |
+| Matrics                | **Recall\TPR** = $`\frac{TP}{TP + FN}`$ | **Specificty** = $`\frac{TN}{TN + FP}`$ |                                        |
+
+Specificty is equilvalent to Recall on negative class
+FPR = (1- Specificity) - used on ROC curve x-axis
 
 ![img_1.png](img_1.png)
 ---

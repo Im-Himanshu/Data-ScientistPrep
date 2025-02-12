@@ -10,7 +10,7 @@ A simple binary classification confusion matrix looks like this:
 |------------------------|-------------------------------------|----------------------------------|----------------------------------------|
 | **Predicted Positive** | True Positive (TP)                  | False Positive (FP)              | **Precision** = $`\frac{TP}{TP + FP}`$ |
 | **Predicted Negative** | False Negative (FN)                 | True Negative (TN)               | **TPR**=   $`\frac{TP}{TP + FN}`$      |
-| Matrics                | **Recall** = $`\frac{TP}{TP + FN}`$ | **FPR** = $`\frac{TN}{TN + FP}`$ |                                        |
+| Matrics                | **Recall** = $`\frac{TP}{TP + FN}`$ | **Specificty** = $`\frac{TN}{TN + FP}`$ |                                        |
 
 ![img_1.png](img_1.png)
 ---

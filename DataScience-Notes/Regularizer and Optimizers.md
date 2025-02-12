@@ -70,10 +70,10 @@ w_{t+1} = w_t - \frac{\eta}{\sqrt{E[g^2]_t + \epsilon}} \cdot \nabla_w Loss
 ```
 ![img_1.png](RMS_prop.png)
 
-Why db is large? inutution, Summation Effect on Bias Gradient
-The bias term does not get multiplied by input valuesduring backpropagation, whereas the weight gradient is multiplied by the input (x). i.e. for y = Wx+b, x is input vector in back propogation dl/dw gets multiplied with x but b is not)
-When backpropagating errors, each weight gradient (dw) is influenced by the input value at that connection, which may be small, leading to a relatively small gradient.
-The bias gradient (db) is a sum over all gradients in the layer (since it is independent of input values), making it generally larger in magnitude.
+-Why db is large? inutution, Summation Effect on Bias Gradient
+ - -The bias term does not get multiplied by input valuesduring backpropagation, whereas the weight gradient is multiplied by the input (x). i.e. for y = Wx+b, x is input vector in back propogation dl/dw gets multiplied with x but b is not)
+- -When backpropagating errors, each weight gradient (dw) is influenced by the input value at that connection, which may be small, leading to a relatively small gradient.
+- - The bias gradient (db) is a sum over all gradients in the layer (since it is independent of input values), making it generally larger in magnitude.
 
 
 

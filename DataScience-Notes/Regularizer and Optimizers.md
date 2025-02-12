@@ -61,15 +61,21 @@ w_{t+1} = w_t - \eta v_t
 ```
 
 3. **RMSProp (Root Mean Square Propagation)**:
-- This is about Adapting learning rate as per the magnitude of that weight. The proposition is to change the learning rate (alpha) in proportion to the magnitude of the gradient, i.e., the learning rate will be faster (also exponentially smoothened) for a large gradient.  
-- - Generally, we expect weights to be higher in the early stage, so the learning rate will be higher, and as the model gets trained, alpha reduces to a minimum, making training stable till the end and enabling it to reach the global minima. From experimentation, we Know that dB is much larger than dW, and we need to control model moment in vertical direction but still keep its momentum in horizontal direction
-- RMSprop allows us to do exactly, it dampens the model movement in vertical direction and keep moving in horizontal direction
+- From experimentation, we Know that dB is much larger than dW, and we need to control model moment in vertical direction but still keep its momentum in horizontal direction
+- RMSprop allows us to handle exactly this, it dampens the model movement in vertical direction and keep moving in horizontal direction
 - Please Note: the aim of this is widely different then of the ADAgrad which keep dampening the model movement as it progress the iteration no matter what.
 - Scales the learning rate by the moving average of squared gradients:   
 ```math
 w_{t+1} = w_t - \frac{\eta}{\sqrt{E[g^2]_t + \epsilon}} \cdot \nabla_w Loss
 ```
 ![img_1.png](RMS_prop.png)
+
+Why db is large? inutution, Summation Effect on Bias Gradient
+The bias term does not get multiplied by input valuesduring backpropagation, whereas the weight gradient is multiplied by the input (x). i.e. for y = Wx+b, x is input vector in back propogation dl/dw gets multiplied with x but b is not)
+When backpropagating errors, each weight gradient (dw) is influenced by the input value at that connection, which may be small, leading to a relatively small gradient.
+The bias gradient (db) is a sum over all gradients in the layer (since it is independent of input values), making it generally larger in magnitude.
+
+
 
 4. **Adam (Adaptive Moment Estimation)**:  
    Combines momentum and RMSProp for adaptive learning rates:  

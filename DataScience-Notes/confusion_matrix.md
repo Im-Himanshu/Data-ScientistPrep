@@ -16,6 +16,13 @@ Specificty is equilvalent to Recall on negative class \
 FPR = (1- Specificity) - used on ROC curve x-axis
 ROC curve is drawn b/w Recall(y-axis) and FPR (x-axis)
 
+
+Realization:
+- Denominator of Recall and FPR i.e (TP+FN) and (TN+FP) is always constant/fixed. Because it is the count of Actual positive or negative example respectively in our data.
+- So the only variable is TP in recall and FP in FPR, which has mostly direct relation if we change our model threshold. i.e. If FP dec. Tp also decreases or remain same or viceversa.
+- Our overall aim is to Maximize TP and minimize FP for the best model. which happen when we move to the left top corner of the ROC curve. SO we try to shift to the left such that we don't go down (reduce recall).
+- Today I have thinked of this as 2 old bucket (actual positive, actual negative) to two new bucket (pred )positive and negative class. so recall and FPR is wrt to the old buckets because the denominator is what we had in old buckets while numerator is wrt to new buckets.
+
 Precision-recall Curve is drawn b/w (precision (y-axis)) and recall (x-axis).
 
 ![img_1.png](img_1.png)

@@ -12,7 +12,7 @@ A simple binary classification confusion matrix looks like this:
 | **Predicted Negative** | False Negative (FN)                 | True Negative (TN)               | Nothing     |
 | Matrics                | **Recall\TPR** = $`\frac{TP}{TP + FN}`$ | **Specificty** = $`\frac{TN}{TN + FP}`$ |                                        |
 
-Specificty is equilvalent to Recall on negative class
+Specificty is equilvalent to Recall on negative class \
 FPR = (1- Specificity) - used on ROC curve x-axis
 
 ![img_1.png](img_1.png)

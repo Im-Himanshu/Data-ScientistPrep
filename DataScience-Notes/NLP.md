@@ -22,6 +22,7 @@ Transformers with Attention is all you need understanding.
 BERT is encoder only model based on transformers
 1. [Visual Guide to BERT](https://jalammar.github.io/a-visual-guide-to-using-bert-for-the-first-time/)
 2. [Explain Transformers](https://jalammar.github.io/explaining-transformers/)
+3. [Bert for Sentence Embedding](https://arxiv.org/abs/1908.10084), [My Notes]()
 
 
 # GPT like models

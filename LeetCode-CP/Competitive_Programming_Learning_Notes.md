@@ -1,4 +1,4 @@
-For Revision of Competitive Programming refer this file [Revise Competitive Programming](./Revise_CompetiveProgramming.md)
+For Revision of Competitive Programming refer this file [Revise Competitive Programming](../Revise_CompetiveProgramming.md)
 In this I am discussing soft skills and tricks that I have learned in my experience.
 
 # Important Lessons
@@ -22,7 +22,7 @@ In this I am discussing soft skills and tricks that I have learned in my experie
    - This makes the process easier; for singly linked lists, the previous pointer doesn't need to be managed.
    - This approach elegantly handles cases where the linked list is empty or has only one element:
      - Start the loop with `current.next is None` and use `current = current.next` to skip the dummy node.
-   - Always delete the connection created to the dummy node at the end of the code to avoid any loop in the code - refer [problem-linkedlist hard -1](./Problem_solving_logs.md) 
+   - Always delete the connection created to the dummy node at the end of the code to avoid any loop in the code - refer [problem-linkedlist hard -1](Problem_solving_logs.md) 
 
 2. **Avoid Index-Based Iteration**
    - Do not run an outer loop based on a fixed number of iterations with next operations.
@@ -33,7 +33,7 @@ In this I am discussing soft skills and tricks that I have learned in my experie
    - if it comes to that and have to implement sorting, use:
      - **Merge Sort** for time complexity.
      - **Bubble Sort** for quicker coding time.
-   - There is an implementation of linked list sorting in [code-samples/linked_list.py](./code_samples/linked_list.py) of this directory.
+   - There is an implementation of linked list sorting in [code-samples/linked_list.py](../code_samples/linked_list.py) of this directory.
 
 4. **Debugging Tips**
    - Linked lists can be tricky to debug; even a single logical error can cause issues.
@@ -72,7 +72,7 @@ In this I am discussing soft skills and tricks that I have learned in my experie
 
 1. **Using Heapq for Dynamic Lists**
    - For programs requiring sorting or top-k structures, use built-in functions like `heapq` for max/min operations.
-   - [HeapQ Detailed Notes](./heapq_python_tutorial.md)
+   - [HeapQ Detailed Notes](heapq_python_tutorial.md)
    - Be creaful if the first value of tuple is tie it jumps to second value so pass a unique value as second value.
 
    ```python

@@ -1,13 +1,13 @@
 Path to Imp Files
 
 ## Competitive Programming 
-- [All Learning Notes- CP_Learning](./Competitive_Programming_Learning_Notes.md)
-- [List of all Concepts and must to read - Revise CP ](./Revise_CompetiveProgramming.md)
-- [Chronological Problem solving logs and learning](./Problem_solving_logs.md)
+- [All Learning Notes- CP_Learning](LeetCode-CP/Competitive_Programming_Learning_Notes.md)
+- [List of all Concepts and must to read - Revise CP ](Revise_CompetiveProgramming.md)
+- [Chronological Problem solving logs and learning](LeetCode-CP/Problem_solving_logs.md)
 
     ### Topic wise Guides
     
-    - [Heapq usage in python](./heapq_python_tutorial.md) 
+    - [Heapq usage in python](LeetCode-CP/heapq_python_tutorial.md) 
 
 
 ## Datascience Related

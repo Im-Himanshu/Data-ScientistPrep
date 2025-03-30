@@ -31,22 +31,21 @@ Tree Traversal
 *   [Queue](#6-queue)
 *   [Heap](#7-heap)
 *   [Hash](#8-hash)
-*   [Tree](#9-tree)
+*   [Tree](#9-tree): read DFS from above, always opt for recursion if some complex method of traversal is required
 *   [Graph](https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/)
 
 
 ## Algorithms
 *   [Searching Algorithm](#1-searching-algorithm)
-*   [Sorting Algorithm](#2-sorting-algorithm)
-*   [Divide and Conquer Algorithm](#3-divide-and-conquer-algorithm)
+*   [Sorting Algorithm](#2-sorting-algorithm): Bubble, Insertion, Merge(Ishan notes), Quick (Ishan Notes)
+*   [Divide and Conquer Algorithm](#3-divide-and-conquer-algorithm) Read Ishan Notes
 *   [Greedy Algorithms](#4-greedy-algorithms)
 *   [Recursion](#5-recursion)
 *   [Backtracking Algorithm](#6-backtracking-algorithm)
 *   [Dynamic Programming](#7-dynamic-programming)
 *   [Graph Algorithms:](#8-graph-algorithms)
-*   [Pattern Searching](#9-pattern-searching)
-*   [Mathematical Algorithms](#10-mathematical-algorithms)
-*   [Geometric Algorithms](#11-geometric-algorithms)
 *   [Bitwise Algorithms](#12-bitwise-algorithms)
 *   [Randomized Algorithms](#13-randomized-algorithms)
-*   [Branch and Bound Algorithm](#14-branch-and-bound-algorithm)
+*   [Two Pointer Algorithm](#15-two-pointer-algorithm)
+*   []
+* 

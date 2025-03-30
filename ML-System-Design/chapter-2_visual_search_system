@@ -1,0 +1,249 @@
+## Chapter-2
+
+Here's a structured summary of the **Visual Search System** concepts covered in the book, organized according to the order of topics:
+
+---
+
+### **Chapter 2: Visual Search System**
+
+#### **1. Introduction to Visual Search Systems**
+- A **visual search system** helps users discover images that are visually similar to a selected query image.
+- Example: Platforms like **Pinterest** implement visual search by allowing users to select an image crop and retrieve similar images.
+
+#### **2. Clarifying Requirements**
+- **Ranking results**: More relevant images should appear at the top.
+- **Image-only search**: The system will not support videos.
+- **User interactions**: Clicking on images can help label training data.
+
+#### **3. Framing the Problem as an ML Task**
+- **Defining the ML objective**: The system should retrieve images that are visually similar to the user's query image.
+- **Input & Output**: The input is a query image, and the output is a ranked list of similar images.
+
+#### **4. Choosing the Right ML Category**
+- **Representation Learning**:
+  - Converts input data (e.g., images) into **embeddings**.
+  - Embeddings exist in an **N-dimensional space**, where similar images are mapped closer together.
+
+#### **5. Data Preparation**
+- The dataset consists of:
+  - **User data**: Includes demographics, interactions, etc.
+  - **Image metadata**: Contains information about each image in the platform.
+
+#### **6. Model Development**
+- **Constructing the dataset**:
+  - Uses **contrastive learning** to map similar images closer together and dissimilar images farther apart.
+- **Choosing the loss function**:
+  - The loss function optimizes how well similar images are retrieved.
+
+#### **7. Evaluation of the Model**
+- **Offline Metrics**:
+  - **Recall@K**: Measures how many relevant images are in the top K results.
+  - **Mean Reciprocal Rank (MRR)**: Evaluates ranking quality.
+  - **Discounted Cumulative Gain (DCG)**: Rewards correctly ranked results with higher scores.
+
+#### **8. Serving the Model**
+- **Prediction Pipeline**:
+  - **Embedding Generation Service**: Converts input images into embeddings.
+  - **Nearest Neighbor Search**:
+    - Searches the index table for similar embeddings.
+- **Indexing Pipeline**:
+  - Ensures new images are added to the search index.
+
+#### **9. Performance of Nearest Neighbor (NN) Algorithms**
+- **Exact NN search**: Compares query images to all indexed images directly.
+- **Approximate NN search**: Uses optimization techniques for faster search.
+
+---
+
+### **Model Evaluation Criteria for Visual Search Systems**
+
+In a **visual search system**, evaluating the effectiveness of image retrieval is crucial. Here are the key metrics used:
+
+---
+
+### **1. Recall@K (Recall at Top-K)**
+- Measures **how many relevant images** appear in the **top K search results**.
+- Higher **Recall@K** means more **relevant images** are retrieved.
+- Formula:
+  \[
+  \text{Recall@K} = \frac{\text{Relevant images in top-K}}{\text{Total relevant images in dataset}}
+  \]
+- **Example**:
+  - Query: Image of a **dog**.
+  - Ground truth: 10 relevant images exist in the dataset.
+  - The system retrieves **5 relevant images** in the top-10 results.
+  - **Recall@10** = 5/10 = **0.5 (50%)**.
+
+---
+
+### **2. Mean Reciprocal Rank (MRR)**
+- Measures **how early** the **first relevant image** appears in the ranked search results.
+- Formula:
+  \[
+  MRR = \frac{1}{N} \sum_{i=1}^{N} \frac{1}{\text{rank}_i}
+  \]
+- **Example**:
+  - Query: Image of a **cat**.
+  - The system ranks the first relevant result at **position 3**.
+  - MRR = 1/3 = **0.33**.
+  - **Higher MRR = Better ranking quality**.
+
+---
+
+### **3. Normalized Discounted Cumulative Gain (NDCG)**
+- **Rewards** highly relevant results appearing **higher** in the ranking.
+- Formula:
+  \[
+  NDCG@K = \frac{DCG@K}{IDCG@K}
+  \]
+  where:
+  - **DCG (Discounted Cumulative Gain)** gives **higher importance** to relevant images appearing earlier.
+  - **IDCG** is the ideal ranking score.
+- **Example**:
+  - Query: Image of a **car**.
+  - Highly relevant results appear in the **top 3 positions**.
+  - **Higher NDCG = Better ranking structure**.
+
+---
+
+### **Visual Representation**
+
+
+
+### **Nearest Neighbor (NN) Search in Visual Search Systems**
+Nearest neighbor (NN) search is a fundamental concept in **information retrieval, recommendation systems, and visual search**. It is used to **find the most similar images to a given query** by comparing feature embeddings in a high-dimensional space.
+
+---
+
+### **1. How Nearest Neighbor Search Works**
+1. **Convert images into embeddings**:
+   - Each image is processed using a **deep learning model** (such as a CNN).
+   - The model generates an **embedding vector** (a numerical representation) for each image.
+   - These embeddings exist in an **N-dimensional space**, where similar images are placed close to each other.
+
+2. **Search for the nearest neighbors**:
+   - When a query image is given, the system computes its embedding.
+   - It then searches for the **k-nearest neighbors (k-NN)** in the embedding space.
+
+3. **Ranking the results**:
+   - The retrieved images are ranked based on their **distance** from the query embedding.
+   - **Smaller distances mean higher similarity**.
+
+---
+
+### **2. Types of Nearest Neighbor Search**
+1. **Exact Nearest Neighbor Search**:
+   - Searches through the entire dataset to find the most similar items.
+   - **Linear search (Brute Force)** is the simplest method.
+   - Works well for **small datasets** but is **slow** for large-scale applications.
+
+2. **Approximate Nearest Neighbor (ANN) Search**:
+   - Uses indexing techniques to speed up search.
+   - **Does not guarantee exact results** but is much **faster**.
+   - Suitable for **large-scale datasets** with millions or billions of images.
+
+---
+
+### **3. Software & Libraries for Nearest Neighbor Search**
+Several tools and libraries are available for **efficient nearest neighbor search**:
+
+#### **(A) Brute Force (Exact Search)**
+1. **Scikit-learn (`NearestNeighbors`)**
+   - Uses brute force search or KD-trees for small-scale datasets.
+   - Example:
+     ```python
+     from sklearn.neighbors import NearestNeighbors
+     import numpy as np
+
+     # Sample dataset (each row is an embedding vector)
+     X = np.array([[1, 2], [3, 4], [5, 6], [7, 8]])
+
+     # Initialize NN search
+     nbrs = NearestNeighbors(n_neighbors=2, algorithm='brute').fit(X)
+     distances, indices = nbrs.kneighbors([[3, 4]])
+
+     print(indices)  # Nearest neighbors' indices
+     print(distances)  # Corresponding distances
+     ```
+
+#### **(B) Approximate Nearest Neighbor (ANN) Search**
+For **large-scale datasets**, ANN methods like **FAISS, Annoy, and HNSW** are preferred.
+
+2. **FAISS (Facebook AI Similarity Search)**
+   - Developed by **Meta (Facebook AI)**.
+   - Optimized for **GPU-based** large-scale search.
+   - Efficient for searching **billions** of vectors.
+   - Example:
+     ```python
+     import faiss
+     import numpy as np
+
+     # Create a random dataset
+     d = 128  # Embedding dimension
+     nb = 100000  # Number of database vectors
+     np.random.seed(1234)
+     data = np.random.random((nb, d)).astype('float32')
+
+     # Build the FAISS index
+     index = faiss.IndexFlatL2(d)  # L2 distance (Euclidean)
+     index.add(data)
+
+     # Search for nearest neighbors
+     query = np.random.random((1, d)).astype('float32')
+     D, I = index.search(query, k=5)  # Find top 5 nearest neighbors
+
+     print(I)  # Indices of nearest neighbors
+     print(D)  # Distances of nearest neighbors
+     ```
+
+3. **Annoy (Approximate Nearest Neighbors Oh Yeah)**
+   - Developed by **Spotify** for fast similarity search.
+   - Uses **random projection trees**.
+   - Optimized for **memory efficiency**.
+   - Example:
+     ```python
+     from annoy import AnnoyIndex
+
+     d = 128  # Embedding dimension
+     t = AnnoyIndex(d, 'euclidean')
+
+     # Adding 100K vectors
+     for i in range(100000):
+         t.add_item(i, np.random.rand(d))
+
+     t.build(10)  # 10 trees
+
+     # Search for nearest neighbor
+     print(t.get_nns_by_vector(np.random.rand(d), 5))  # Top 5 neighbors
+     ```
+
+4. **HNSW (Hierarchical Navigable Small World)**
+   - Used in **Microsoft’s DiskANN** and **nmslib**.
+   - Provides **high-speed** and **high-accuracy** approximate search.
+
+---
+
+### **4. Choosing the Best Nearest Neighbor Search Method**
+| **Method** | **Best for** | **Pros** | **Cons** |
+|------------|-------------|----------|----------|
+| **Scikit-learn (`NearestNeighbors`)** | Small datasets | Easy to use | Slow for large datasets |
+| **FAISS (Facebook AI)** | Large-scale search (Billions of vectors) | Fast GPU acceleration | Requires memory tuning |
+| **Annoy (Spotify)** | Memory-efficient search | Low memory usage | Slower than FAISS for large datasets |
+| **HNSW (nmslib, DiskANN)** | High-speed, accurate search | Very fast & accurate | Complex indexing |
+
+---
+
+### **5. Real-World Applications**
+- **Pinterest**: Uses nearest neighbor search to retrieve visually similar images.
+- **Google Reverse Image Search**: Finds web images similar to the uploaded image.
+- **Amazon & eBay**: Uses nearest neighbor search for **product recommendations**.
+
+---
+
+### **Conclusion**
+- **For small datasets**, **Scikit-learn (`NearestNeighbors`)** is enough.
+- **For large-scale image retrieval**, **FAISS (GPU-optimized)** is the best.
+- **For memory-efficient search**, **Annoy** is a great alternative.
+- **For high-speed search with precision**, **HNSW (nmslib, DiskANN)** is ideal.
+
+Let me know if you need code examples or further details! 🚀

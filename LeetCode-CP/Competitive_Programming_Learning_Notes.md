@@ -33,7 +33,7 @@ In this I am discussing soft skills and tricks that I have learned in my experie
    - if it comes to that and have to implement sorting, use:
      - **Merge Sort** for time complexity.
      - **Bubble Sort** for quicker coding time.
-   - There is an implementation of linked list sorting in [code-samples/linked_list.py](../code_samples/linked_list.py) of this directory.
+   - There is an implementation of linked list sorting in [code-samples/linked_list.py](code_samples/linked_list.py) of this directory.
 
 4. **Debugging Tips**
    - Linked lists can be tricky to debug; even a single logical error can cause issues.

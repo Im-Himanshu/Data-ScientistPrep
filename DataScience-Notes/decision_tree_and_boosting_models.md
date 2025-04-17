@@ -20,24 +20,10 @@ The Basic idea Behind Random Forest is the feature which is at the top of the tr
 
 
 # Decision Tree Matrices
-
-Sure! Here's your content rewritten in **Markdown** format with improved structure, readability, and clear visual explanations to help build deep intuition around **Decision Tree splitting criteria**.
-
----
-
-# 🌳 Decision Tree Splitting Criteria – Core Concepts
-
-The algorithm selection for decision trees largely depends on the **type of target variable** (categorical vs. continuous). Below are the **four most commonly used algorithms** to determine the best feature split:
-
----
-
+[Analytics VIdya article Best describe them](https://www.analyticsvidhya.com/blog/2016/04/tree-based-algorithms-complete-tutorial-scratch-in-python/)
 ## 🔹 1. **Gini Index**
 
-> _"Probability of randomly chosen elements being of the same class."_
-
-- **Used for**: Classification (categorical target)
-- **Splits**: Binary only (used in **CART** – Classification and Regression Trees)
-- **Interpretation**: Lower Gini → better purity (homogeneity)
+> "Probability of randomly chosen elements being of the same class."_
 
 ### 🔧 How to Calculate Gini:
 1. For each sub-node:  
@@ -45,29 +31,6 @@ The algorithm selection for decision trees largely depends on the **type of targ
     Gini = p^2 + q^2
     ```   
    where `p` = probability of success, `q` = probability of failure.
-2. For the split:  
-   ```math  
-    Gini_{split} = \sum_{i} \left(\frac{n_i}{N} \cdot Gini_i\right) 
-   ```  
-
----
-
-### 📊 Example: Splitting on "Gender" and "Class"
-
-| Split | Node | Success | Failure | Gini Node | Weight | Weighted Gini |
-|-------|------|---------|---------|-----------|--------|----------------|
-| Gender | Female | 2 | 8 | 0.68 | 10/30 | 0.227 |
-|        | Male   | 13 | 7 | 0.55 | 20/30 | 0.366 |
-|        |        |     |   |       |        | **0.59** |
-| Class | IX     | 6 | 8 | 0.51 | 14/30 | 0.238 |
-|       | X      | 9 | 7 | 0.51 | 16/30 | 0.272 |
-|       |        |     |   |       |        | **0.51** |
-
-✅ **Gender** split is better since **0.59 > 0.51**
-
-> **Gini Impurity** = 1 − Gini
-
----
 
 ## 🔹 2. **Chi-Square**
 
@@ -82,20 +45,6 @@ The algorithm selection for decision trees largely depends on the **type of targ
    ```math  
     \chi^2 = \frac{(Actual - Expected)^2}{Expected} 
    ```  
-2. Sum the Chi-square scores of all classes and nodes.
-
----
-
-### 📊 Example (Split on Gender):
-
-| Node | Actual (Play, Not Play) | Expected (Play, Not Play) | Deviation | Chi-Square |
-|------|--------------------------|----------------------------|-----------|------------|
-| Female | 2, 8 | 5, 5 | -3, +3 | 3.6 |
-| Male | 13, 7 | 10, 10 | +3, -3 | 1.8 |
-| **Total** | | | | **5.4** |
-
-✅ Gender again is more significant than Class for splitting.
-
 ---
 
 ## 🔹 3. **Information Gain (Entropy Based)**
@@ -111,32 +60,6 @@ The algorithm selection for decision trees largely depends on the **type of targ
 - **Information Gain** = Entropy(Parent) − Weighted Entropy(Children)
 
 ---
-
-### 📊 Example: Entropy Calculations
-
-| Node      | Success | Failure | Entropy |
-|-----------|---------|---------|---------|
-| Parent    | 15 | 15 | 1.0     |
-| Female    | 2 | 8  | 0.72    |
-| Male      | 13 | 7 | 0.93    |
-
-> Weighted Entropy (Gender split) =  
-```math  
-    \frac{10}{30} \cdot 0.72 + \frac{20}{30} \cdot 0.93 = 0.86
-   ```   
-  
-> Information Gain = 1.0 − 0.86 = **0.14**
-
-| Node      | IX | X | Entropy |
-|-----------|----|---|---------|
-| Class IX  | 6 | 8 | 0.99     |
-| Class X   | 9 | 7 | 0.99     |
-> Weighted Entropy = **0.99** → IG = 1.0 − 0.99 = **0.01**
-
-✅ **Split on Gender** gives higher **information gain**
-
----
-
 ## 🔹 4. **Reduction in Variance (for Regression)**
 
 > _"Split that reduces output variance the most."_  
@@ -147,53 +70,6 @@ The algorithm selection for decision trees largely depends on the **type of targ
   ```math  
   \frac{1}{n} \sum (x_i - \bar{x})^2 
   ```  
-
----
-
-### 📊 Example:
-
-Assign `1` for "Play", `0` for "Not Play".
-
-- Parent Mean = 0.5  
-  ```math  
-  \text{Var}_{root} = 0.25 
-  ```  
-
-| Node   | Mean | Variance |
-|--------|------|----------|
-| Female | 0.2  | 0.16     |
-| Male   | 0.65 | 0.23     |
-
-> Weighted Variance (Gender) =  
-```math  
-  \frac{10}{30} \cdot 0.16 + \frac{20}{30} \cdot 0.23 = 0.21 
-```  
-
-| Node   | Mean | Variance |
-|--------|------|----------|
-| Class IX | 0.43 | 0.24 |
-| Class X  | 0.56 | 0.25 |
-
-> Weighted Variance (Class) = **0.25**
-
-✅ Gender gives lower variance → better split
-
----
-
-# 🎯 Summary
-
-| Criterion | Type of Target | Algorithm | Splitting Style | Best When |
-|-----------|----------------|-----------|------------------|-----------|
-| **Gini** | Categorical | CART | Binary | Fast + Pure |
-| **Chi-Square** | Categorical | CHAID | Multi-way | Stat significance |
-| **Info Gain (Entropy)** | Categorical | ID3, C4.5 | Binary | Info-theoretic split |
-| **Variance Reduction** | Continuous | CART | Binary | Regression tasks |
-
----
-
-> ✅ Choose the splitting criterion **based on the target type and interpretability**.  
-> For classification: Gini and Info Gain dominate.  
-> For regression: Variance reduction is ideal.
 
 ---
 

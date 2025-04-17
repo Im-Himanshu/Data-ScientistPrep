@@ -41,10 +41,14 @@ The algorithm selection for decision trees largely depends on the **type of targ
 
 ### 🔧 How to Calculate Gini:
 1. For each sub-node:  
-   ```math  Gini = p^2 + q^2 ```math   
+   ```math  
+    Gini = p^2 + q^2
+    ```   
    where `p` = probability of success, `q` = probability of failure.
 2. For the split:  
-   ```math  Gini_{split} = \sum_{i} \left(\frac{n_i}{N} \cdot Gini_i\right) ```  
+   ```math  
+    Gini_{split} = \sum_{i} \left(\frac{n_i}{N} \cdot Gini_i\right) 
+   ```  
 
 ---
 
@@ -75,7 +79,9 @@ The algorithm selection for decision trees largely depends on the **type of targ
 
 ### 🔧 How to Calculate Chi-Square:
 1. For each class:  
-   ```math  \chi^2 = \frac{(Actual - Expected)^2}{Expected} ```  
+   ```math  
+    \chi^2 = \frac{(Actual - Expected)^2}{Expected} 
+   ```  
 2. Sum the Chi-square scores of all classes and nodes.
 
 ---
@@ -98,8 +104,10 @@ The algorithm selection for decision trees largely depends on the **type of targ
 > Used by: **ID3**, **C4.5**
 
 - **Used for**: Classification (categorical target)
-- **Entropy** measures disorder:  
-  ```math  Entropy = -p \log_2(p) - q \log_2(q) ```  
+  - **Entropy** measures disorder:  
+    ```math  
+    Entropy = -p \log_2(p) - q \log_2(q)
+     ```  
 - **Information Gain** = Entropy(Parent) − Weighted Entropy(Children)
 
 ---
@@ -113,8 +121,10 @@ The algorithm selection for decision trees largely depends on the **type of targ
 | Male      | 13 | 7 | 0.93    |
 
 > Weighted Entropy (Gender split) =  
-> ```math  \frac{10}{30} \cdot 0.72 + \frac{20}{30} \cdot 0.93 = 0.86 ```math   
->  
+```math  
+    \frac{10}{30} \cdot 0.72 + \frac{20}{30} \cdot 0.93 = 0.86
+   ```   
+  
 > Information Gain = 1.0 − 0.86 = **0.14**
 
 | Node      | IX | X | Entropy |
@@ -134,7 +144,9 @@ The algorithm selection for decision trees largely depends on the **type of targ
 
 - **Used for**: Continuous target variable
 - **Variance** =  
-  ```math  \frac{1}{n} \sum (x_i - \bar{x})^2 ```  
+  ```math  
+  \frac{1}{n} \sum (x_i - \bar{x})^2 
+  ```  
 
 ---
 
@@ -143,7 +155,9 @@ The algorithm selection for decision trees largely depends on the **type of targ
 Assign `1` for "Play", `0` for "Not Play".
 
 - Parent Mean = 0.5  
-  ```math  \text{Var}_{root} = 0.25 ```  
+  ```math  
+  \text{Var}_{root} = 0.25 
+  ```  
 
 | Node   | Mean | Variance |
 |--------|------|----------|
@@ -151,7 +165,9 @@ Assign `1` for "Play", `0` for "Not Play".
 | Male   | 0.65 | 0.23     |
 
 > Weighted Variance (Gender) =  
-> ```math  \frac{10}{30} \cdot 0.16 + \frac{20}{30} \cdot 0.23 = 0.21 ```  
+```math  
+  \frac{10}{30} \cdot 0.16 + \frac{20}{30} \cdot 0.23 = 0.21 
+```  
 
 | Node   | Mean | Variance |
 |--------|------|----------|

@@ -19,6 +19,102 @@ Succession is as follows
 The Basic idea Behind Random Forest is the feature which is at the top of the tree is the most important feature. The more the feature is at the top of the tree the more important it is. Moreover it calculates the Information gain by using some particular formula. The more the information gain the more important the feature is.
 
 
+# Decision Tree Matrices
+
+Here's a **clear and concise explanation** of **Information Gain**, **Gini Index**, and **Chi-Square**, with examples — all commonly used for **splitting nodes in decision trees**.
+
+---
+
+### 🌳 1. **Information Gain (IG)** – *Used in ID3 Algorithm*
+
+#### ✅ **Definition:**
+Information Gain measures **how much "information" a feature gives us about the class**. It is based on **entropy**, which quantifies the **impurity** or disorder in a dataset.
+
+#### 🧠 **Formula:**
+```math
+\text{Information Gain (IG)} = \text{Entropy}(Parent) - \sum \frac{|Child|}{|Parent|} \times \text{Entropy}(Child)
+```
+
+Where entropy is:
+```math
+\text{Entropy}(S) = - \sum p_i \log_2(p_i)
+```
+
+#### 📊 **Example:**
+
+Imagine a dataset of 14 students:
+
+- 9 passed 🟢
+- 5 failed 🔴
+
+**Entropy of root:**
+```math
+Entropy = -\frac{9}{14}\log_2\frac{9}{14} - \frac{5}{14}\log_2\frac{5}{14} \approx 0.94
+```
+
+Now split on a feature like **"Hours Studied"** (Yes/No), and calculate entropy for each group, then calculate IG.
+
+---
+
+### 🌳 2. **Gini Index** – *Used in CART Algorithm*
+
+#### ✅ **Definition:**
+Gini Index measures the **probability of misclassifying** a randomly chosen element. Lower Gini means better split.
+
+#### 🧠 **Formula:**
+```math
+\text{Gini}(S) = 1 - \sum p_i^2
+```
+
+#### 📊 **Example:**
+Again using 9 Pass, 5 Fail:
+```math
+Gini = 1 - \left(\frac{9}{14}\right)^2 - \left(\frac{5}{14}\right)^2 \approx 0.459
+```
+
+Split on a feature, compute Gini for each split and get the weighted average. Choose the feature with **lowest Gini**.
+
+---
+
+### 🌳 3. **Chi-Square (χ²) Criterion** – *Used in CHAID Algorithm*
+
+#### ✅ **Definition:**
+Chi-Square tests if there is a **significant relationship** between a feature and the target variable. It **compares observed and expected frequencies**.
+
+#### 🧠 **Formula:**
+```math
+\chi^2 = \sum \frac{(Observed - Expected)^2}{Expected}
+```
+
+#### 📊 **Example:**
+
+| Feature | Pass (Observed) | Fail (Observed) | Total |
+|---------|------------------|------------------|--------|
+| Yes     | 6                | 2                | 8      |
+| No      | 3                | 3                | 6      |
+| Total   | 9                | 5                | 14     |
+
+Expected for “Yes-Pass”:
+```math
+E = \frac{8 \times 9}{14} = 5.14
+```
+
+Then compute χ² for each cell and sum. Larger χ² means **more significant** feature.
+
+---
+
+### ✅ Summary Table
+
+| Metric         | Purpose                         | Range     | Best Split Criteria         | Used In  |
+|----------------|----------------------------------|-----------|------------------------------|----------|
+| **Information Gain** | Reduces entropy (disorder)         | ≥ 0       | **Maximum IG**               | ID3      |
+| **Gini Index**       | Measures impurity                 | 0 to 0.5  | **Minimum Gini**             | CART     |
+| **Chi-Square**       | Statistical test of dependence    | ≥ 0       | **Maximum χ² value**         | CHAID    |
+
+---
+
+Want me to build a real Python example using `sklearn` to show these metrics on a dataset?
+
 ## AdaBoost 
 
 [StatQuest Video](https://www.youtube.com/watch?v=LsK-xG1cLYA&ab_channel=StatQuestwithJoshStarmer)
@@ -467,9 +563,9 @@ Like AdaBoost, but instead of adjusting weights, each learner fits to the **resi
 ### 🧠 Steps:
 1. Predict mean value (first model).
 2. Compute residuals:  
-   \[
+   ```math
    \text{residual} = y - \hat{y}
-   \]
+   ```
 3. Train next tree to **predict residuals**.
 4. Add that tree’s output to previous predictions.
 
@@ -481,9 +577,9 @@ Like AdaBoost, but instead of adjusting weights, each learner fits to the **resi
 | 2     | +1.5          | Actual - 13.5 |
 
 Final prediction:  
-\[
+```math
 \hat{y} = 10 + 2 + 1.5 = 13.5
-\]
+```
 
 ### 📊 Comparison Table:
 

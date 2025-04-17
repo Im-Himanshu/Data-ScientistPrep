@@ -174,3 +174,27 @@ Data drift matrices like **Kullback-Leibler (KL) Divergence** and others help qu
    - **Cons**: Less informative for small sample sizes.  
 
 Would you like help implementing any of these in Python?
+
+
+What is QLoRA and PEFT? [source](https://www.youtube.com/watch?v=eC6Hd1hFvos&ab_channel=ShawTalebi)
+QLoRA : Low Rank Adaptation
+PEFT: Parameter Efficient Fine Tuning
+
+There are three ways to fine tune the model, the last one is PPO but it requires to train a reward model which in itself is a complex task.
+![img_7.png](img_7.png)
+
+So We do DPO, and then we do PEFT, which is a low rank adaptation of the model.
+There are three ways for that also
+1. Traing all the parameters of the model (costly)
+2. Train only the attention heads (costly)
+3. Add new Weight to the model (shown in light grey below)
+![img_9.png](img_9.png)
+
+## QLoRA
+
+Original method of doing fine-tuning without LoRA. We have millions of parameters to train.
+![img_12.png](img_12.png)
+
+In LoRA we train only A and B and the r (rank of the model) can be very small. so the training parameter are small and we are able to match the output size of W. 
+![img_13.png](img_13.png)
+

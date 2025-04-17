@@ -75,7 +75,7 @@ The algorithm selection for decision trees largely depends on the **type of targ
 
 ### 🔧 How to Calculate Chi-Square:
 1. For each class:  
-   $$ \chi^2 = \frac{(Actual - Expected)^2}{Expected} $$
+   $ \chi^2 = \frac{(Actual - Expected)^2}{Expected} $
 2. Sum the Chi-square scores of all classes and nodes.
 
 ---
